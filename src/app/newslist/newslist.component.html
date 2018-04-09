@@ -1,0 +1,5 @@
+<div *ngFor="let newsItem of news">
+  <h1>{{ newsItem.title }}</h1>
+  <div>{{ newsItem.content }}</div>
+  <img [src]="newsItem.imagePath" [alt]="newsItem.title" />
+</div>
