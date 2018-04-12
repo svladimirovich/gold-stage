@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs/Subscription';
 
 type News = Array<{
   title: string,
@@ -12,17 +13,21 @@ type News = Array<{
   selector: 'app-newslist',
   templateUrl: './newslist.component.html',
 })
-export class NewslistComponent implements OnInit {
+export class NewslistComponent implements OnInit, OnDestroy {
 
   public news: News = [];
+  private subscription: Subscription;
 
   constructor(public http: HttpClient) { }
 
   ngOnInit() {
     // TODO: need to set config variables here
-    this.http.get<News>('http://localhost:4000/api/news').subscribe(news => {
+    this.subscription = this.http.get<News>('http://localhost:4000/api/news').subscribe(news => {
       this.news = news;
     })
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
