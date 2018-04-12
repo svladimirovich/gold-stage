@@ -19,7 +19,8 @@ export class NewslistComponent implements OnInit {
   constructor(public http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get<News>('/api/news').subscribe(news => {
+    // TODO: need to set config variables here
+    this.http.get<News>('http://localhost:4000/api/news').subscribe(news => {
       this.news = news;
     })
   }
