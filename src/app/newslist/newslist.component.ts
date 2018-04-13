@@ -22,7 +22,7 @@ export class NewslistComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // TODO: need to set config variables here
-    this.subscription = this.http.get<News>('http://localhost:4000/api/news').subscribe(news => {
+    this.subscription = this.http.get<News>('https://golden-stage.herokuapp.com/api/news').subscribe(news => {
       this.news = news;
     })
   }
