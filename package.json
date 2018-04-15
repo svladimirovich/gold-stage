@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start": "node dist/server.js",
+    "postinstall": "npm run build:ssr",
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build --prod",
-    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
