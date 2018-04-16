@@ -45,6 +45,14 @@ app.engine('html', (_, options, callback) => {
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));
 
+// For development mode. For when I start 'ng serve' locally, the app would use production API on heroku without CORS violations
+this.router.options("/*", function (request, response, next) {
+    response.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    //response.header('Access-Control-Allow-Headers', "Authorization");
+    response.sendStatus(200);
+});
+
 app.get('/api/news', (request, response) => {
     response.status(200).json(newsList);
 })
