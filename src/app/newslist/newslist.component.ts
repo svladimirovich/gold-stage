@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
+import { ClientConfiguration } from '../../../config.client';
 
 type News = Array<{
   title: string,
@@ -17,12 +18,12 @@ export class NewslistComponent implements OnInit, OnDestroy {
 
   public news: News = [];
   private subscription: Subscription;
+  private configuration: ClientConfiguration = new ClientConfiguration();
 
   constructor(public http: HttpClient) { }
 
   ngOnInit() {
-    // TODO: need to set config variables here
-    this.subscription = this.http.get<News>('https://guarded-shelf-22289.herokuapp.com/api/news').subscribe(news => {
+    this.subscription = this.http.get<News>(`${this.configuration.BaseUrl}/api/news`).subscribe(news => {
       this.news = news;
     })
   }

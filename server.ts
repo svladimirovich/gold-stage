@@ -10,14 +10,14 @@ import { join } from 'path';
 import { readFileSync } from 'fs';
 import { newsList } from './src/assets/news';
 
+import { ServerConfiguration } from './config.server';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
 // Express server
 const app = express();
-
-const PORT = process.env.PORT || 4000;
+const configuration = new ServerConfiguration();
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
 // Our index.html we'll use as our template
@@ -70,6 +70,6 @@ app.get('*', (req, res) => {
 });
 
 // Start up the Node server
-app.listen(PORT, () => {
-    console.log(`Node server listening on http://localhost:${PORT}`);
+app.listen(configuration.Port, () => {
+    console.log(`Node server listening on http://localhost:${configuration.Port}`);
 });
