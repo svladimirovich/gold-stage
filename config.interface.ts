@@ -5,11 +5,11 @@
 export interface IServerConfiguration {
     /* process.env.PORT */
     Port: number;
-    /* process.env.HOST_BASE_URL */
+    /* process.env.DATABASE_URI */
     DatabaseUri: string;
 }
 
 export interface IClientConfiguration {
-    /* process.env.DATABASE_URI */
+    /* process.env.HOST_BASE_URL */
     BaseUrl: string;
 }

@@ -1,6 +1,6 @@
 let fs = require("fs");
 
-function generateConfigurationIfItDoesntExist(fileName, className, properties) {
+function generateConfigurationIfItDoesntExist(fileName, className, properties, generateAccessorProperties = false) {
     
     if (fs.existsSync(fileName)) {
         return;
@@ -9,16 +9,20 @@ function generateConfigurationIfItDoesntExist(fileName, className, properties) {
     let variableEntries = [];
 
     properties.forEach(property => {
-        switch(property.type) {
-            case "string":
-                property.value = process.env[property.environmentVariableName] ? `"${process.env[property.environmentVariableName]}"` : undefined;
-                break;
-            case "boolean":
-            case "number":
-                property.value = process.env[property.environmentVariableName];
-                break;
+        if(generateAccessorProperties) {
+            variableEntries.push(`get ${property.name}(): ${property.type} { return process.env.${property.environmentVariableName} };`);
+        } else {
+            switch(property.type) {
+                case "string":
+                    property.value = process.env[property.environmentVariableName] ? `"${process.env[property.environmentVariableName]}"` : undefined;
+                    break;
+                case "boolean":
+                case "number":
+                    property.value = process.env[property.environmentVariableName];
+                    break;
+            }
+            variableEntries.push(`${property.name}: ${property.type} = ${property.value};`);
         }
-        variableEntries.push(`${property.name}: ${property.type} = ${property.value};`)
     });
 
     let fileBody = `import { I${className} } from "./config.interface";
@@ -43,7 +47,7 @@ while((interfaceBodyMatch = interfaceBodyPattern.exec(configInterfaceContents)) 
     let className = interfaceBodyMatch[1];
     let classBody = interfaceBodyMatch[2];
 
-    let interfaceEntryPattern = /\s*\/\*\s*(process.env.\w*)\s*\*\/\s*(\w*)\s*:\s*(number|string|boolean)/g;
+    let interfaceEntryPattern = /\s*\/\*\s*process.env.(\w*)\s*\*\/\s*(\w*)\s*:\s*(number|string|boolean)/g;
     let interfaceEntryMatch;
     let properties = [];
     while((interfaceEntryMatch = interfaceEntryPattern.exec(classBody)) !== null) {
@@ -62,7 +66,7 @@ while((interfaceBodyMatch = interfaceBodyPattern.exec(configInterfaceContents)) 
             generateConfigurationIfItDoesntExist("./config.client.ts", className, properties);
             break;
         case "ServerConfiguration":
-            generateConfigurationIfItDoesntExist("./config.server.ts", className, properties);
+            generateConfigurationIfItDoesntExist("./config.server.ts", className, properties, true);
             break;
         default:
             break;
