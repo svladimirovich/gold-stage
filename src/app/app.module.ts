@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,7 +14,8 @@ import { NewslistComponent } from './newslist/newslist.component';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'gold-stage'}),
-    HttpClientModule
+    HttpClientModule,
+    BrowserTransferStateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
