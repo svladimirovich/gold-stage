@@ -3,7 +3,6 @@ import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 
 import { renderModuleFactory } from '@angular/platform-server';
-import { enableProdMode } from '@angular/core';
 
 import * as express from 'express';
 import { join } from 'path';
@@ -11,9 +10,6 @@ import { readFileSync } from 'fs';
 import { newsList } from './src/assets/news';
 
 import { ServerConfiguration } from './config.server';
-
-// Faster server renders w/ Prod mode (dev mode never needed)
-enableProdMode();
 
 // Express server
 const app = express();
