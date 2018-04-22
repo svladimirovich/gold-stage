@@ -14,8 +14,9 @@
     "build:client-and-server-bundles": "ng build --prod && ng build --prod --app server --output-hashing=false",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "build:ssr:dev": "npm run build:client-and-server-bundles:dev && npm run webpack:server:dev",
-    "build:client-and-server-bundles:dev": "ng build --dev && ng build --dev --app server --output-hashing=false",
-    "webpack:server:dev": "webpack --config webpack.server.config.js --progress --colors"
+    "build:client-and-server-bundles:dev": "ng build --dev && ng build --dev --app server --aot --output-hashing=false",
+    "webpack:server:dev": "webpack --config webpack.server.config.js --progress --colors",
+    "webpack:server:watch": "webpack --config webpack.server.config.js --progress --colors --watch"
   },
   "private": true,
   "dependencies": {
