@@ -29,6 +29,7 @@
       }
     },
     {
+      "name": "server",
       "platform": "server",
       "root": "src",
       "outDir": "dist/server",
