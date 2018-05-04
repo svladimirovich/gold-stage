@@ -5,7 +5,10 @@ $color-gold:  rgb(177, 127, 0);
 $color-gold-dirty: rgb(78, 68, 11);
 $color-gold-shadow: rgb(53, 22, 0);
 
+@import url('https://fonts.googleapis.com/css?family=Alice');
+
 body {
+    font-family: 'Alice', serif;
     background: linear-gradient(rgba(255, 245, 238, 0.8), rgba(255, 245, 238, 0.99)), url('../src/assets/images/ballerina01.svg');
     background-position: bottom right;
     background-repeat: no-repeat;
