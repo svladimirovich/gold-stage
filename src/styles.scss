@@ -5,44 +5,58 @@ $color-gold:  rgb(177, 127, 0);
 $color-gold-dirty: rgb(78, 68, 11);
 $color-gold-shadow: rgb(53, 22, 0);
 
+$paragraph-text-size: 1.2em;
+$section-header-size: 2.4em;
+
 @import url('https://fonts.googleapis.com/css?family=Alice');
 
 body {
+    margin: 0;
     font-family: 'Alice', serif;
     background: linear-gradient(rgba(255, 245, 238, 0.8), rgba(255, 245, 238, 0.99)), url('../src/assets/images/ballerina01.svg');
     background-position: bottom right;
     background-repeat: no-repeat;
 }
 
-nav {
-    img {
-        max-height: 70px;
-        max-width: 70px;
-        float: left;
-    }
-    h1 {
-        margin-left: 20px;
-        margin-top: 0;
-        float: left;
-        color: $color-gold;
-        font-size: 2em;
-    }
-    ul {
-        list-style-type: none;
-        > li {
-            text-align: center;
-            float: right;
-            min-width: 120px;
-            //border-left: 1px solid #ada791;
-            > a {
-                text-align: center;
-                font-size: 1.2em;
-                padding: 10px 10px 10px 10px;
-                text-decoration: none;
-                color: $color-gold-shadow;
+h1 {
+    margin-top: 0;
+}
 
-                &:hover {
-                    text-decoration: underline;
+header {
+    padding-top: 2em;
+    padding-bottom: 4em;
+    background: linear-gradient(rgba(255, 245, 238, 0.2), rgba(255, 245, 238, 0.2)), url('../src/assets/images/stage.png');
+    background-size: cover;
+    h1 {
+        color: goldenrod;
+        text-shadow: 2px 2px $color-gold-shadow;
+        font-size: 3em;
+    }
+    p {
+        color: rgb(206, 196, 171);
+        text-shadow: 1px 1px black;
+        font-size: $paragraph-text-size;
+    }
+    nav {
+        ul {
+            list-style-type: none;
+            > li {
+                margin: .2em;
+                padding: .4em;
+                text-align: center;
+                float: right;
+                min-width: 12em;
+                background-color: rgba(255, 200, 60, 0.5);
+                > a {
+                    text-align: center;
+                    font-size: 1.5em;
+                    padding: 10px 10px 10px 10px;
+                    text-decoration: none;
+                    color: $color-gold-shadow;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
@@ -50,11 +64,11 @@ nav {
 }
 
 section {
-
-    margin-bottom: 30px;
+    margin-top: 4em;
+    margin-bottom: 4em;
 
     h1 {
-        font-size: 22px;
+        font-size: $section-header-size;
         color: $color-gold-shadow;
     }
 
@@ -68,8 +82,14 @@ section {
     }
 
     p {
+        font-size: $paragraph-text-size;
         color: $color-gold-dirty;
     }
+}
+
+.dark-text-board {
+    padding: 2em;
+    background: rgba(26, 22, 16, 0.8);
 }
 
 .wrapper {
