@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NewslistComponent } from './newslist/newslist.component';
 import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -19,13 +20,7 @@ import { HomeComponent } from './home/home.component';
     BrowserModule.withServerTransition({appId: 'gold-stage'}),
     HttpClientModule,
     BrowserTransferStateModule,
-    RouterModule.forRoot([{
-      path: '',
-      component: HomeComponent
-    },{
-      path: 'admin',
-      loadChildren: './admin/admin.module#AdminModule',
-    }])
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
