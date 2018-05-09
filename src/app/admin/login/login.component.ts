@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styles: []
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
     public loginForm: FormGroup;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
+    ngOnInit() {
         this.loginForm = new FormGroup({
             'username': new FormControl(''),
             'password': new FormControl('')
@@ -21,6 +21,6 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
         console.log('submitting form', this.loginForm);
-  }
+    }
 
 }

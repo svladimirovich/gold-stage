@@ -1,0 +1,26 @@
+%btn-goldstage {
+    font-size: 1.2em;
+    font-family: $font-alice;
+    color: $color-gold-shadow;
+    min-width: 8em;
+    padding: .2em 1em .2em 1em;
+    background-color: rgba(255, 200, 60, 0.6);
+    border: none;
+    outline: none;
+
+    > a {
+        display: block;
+        text-align: center;
+        font-size: 1.2em;
+        text-decoration: none;
+        color: $color-gold-shadow;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &:active {
+        background-color: rgba(255, 200, 60, 0.9);
+    }
+}
