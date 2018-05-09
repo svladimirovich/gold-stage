@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+<section>
+  <div class="wrapper">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <label for="username">Username:</label><br/>
+        <input name="username" id="username" formControlName="username" type="text" />
+      </fieldset>
+      <fieldset>
+        <label for="password">Password:</label><br/>
+        <input name="password" id="password" formControlName="password" type="password" />
+      </fieldset>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</section>
