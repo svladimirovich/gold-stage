@@ -7,6 +7,11 @@ export interface IServerConfiguration {
     Port: number;
     /* process.env.DATABASE_URI */
     DatabaseUri: string;
+
+    /* process.env.ADMIN_LOGIN */
+    AdminLogin: string;
+    /* process.env.ADMIN_PASSWORD */
+    AdminPassword: string;
 }
 
 export interface IClientConfiguration {

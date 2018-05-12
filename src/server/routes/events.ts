@@ -7,7 +7,6 @@ import { generateGuid } from '../../helpers/guid';
 import { StageEvent } from '../../models/events';
 import { ErrorResponse, OkResponse } from '../helpers/responses';
 
-//app.use(bodyParser.json()); // support json encoded bodies
 router.use(express.json());
 
 // select all

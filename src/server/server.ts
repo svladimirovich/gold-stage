@@ -8,7 +8,7 @@ import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
-import * as apiRouter from './api.router';
+import * as apiRoutes from './routes/api-routes';
 import { ServerConfiguration } from '../../config.server';
 
 // Express server
@@ -53,7 +53,7 @@ app.options("/*", function (request, response, next) {
     response.sendStatus(200);
 });
 
-app.use('/api', apiRouter);
+app.use('/api', apiRoutes);
 
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
