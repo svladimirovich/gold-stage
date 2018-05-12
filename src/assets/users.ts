@@ -1,3 +1,1 @@
-import { AdminUser } from "../models/users";
-
-export const usersList: Array<AdminUser> = [];
+export const usersList = [];

@@ -1,6 +1,4 @@
-import { StageEvent } from "../models/events";
-
-export const eventsList : Array<StageEvent> = [
+export const eventsList = [
   {
     id: "fa557d0d-7185-28d1-9088-6341f2ce00a5",
     title: "Zemfira",
