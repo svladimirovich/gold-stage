@@ -7,9 +7,9 @@ import { renderModuleFactory } from '@angular/platform-server';
 import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
-import { newsList } from './src/assets/news';
+import { newsList } from '../assets/news';
 
-import { ServerConfiguration } from './config.server';
+import { ServerConfiguration } from '../../config.server';
 
 // Express server
 const app = express();
@@ -20,7 +20,7 @@ const DIST_FOLDER = join(process.cwd(), 'dist');
 const template = readFileSync(join(DIST_FOLDER, 'browser', 'index.html')).toString();
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main.bundle');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('../../dist/server/main.bundle');
 
 const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
 
