@@ -7,8 +7,8 @@ import { renderModuleFactory } from '@angular/platform-server';
 import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
-import { newsList } from '../assets/news';
 
+import * as apiRouter from './api.router';
 import { ServerConfiguration } from '../../config.server';
 
 // Express server
@@ -53,9 +53,7 @@ app.options("/*", function (request, response, next) {
     response.sendStatus(200);
 });
 
-app.get('/api/news', (request, response) => {
-    response.status(200).json(newsList);
-})
+app.use('/api', apiRouter);
 
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
