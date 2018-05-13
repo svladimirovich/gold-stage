@@ -1,45 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
-import { CookieService } from 'ngx-cookie';
+import { Store } from '@ngrx/store';
 
 import { ClientConfiguration } from '../../../../config.client';
-import { Router, ActivatedRoute } from '@angular/router';
+import { AppState } from '../../app.reducers';
+import { LoggingInAction } from './login.actions';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
+
+    private configuration: ClientConfiguration = new ClientConfiguration();
+    private subscription: Subscription;
 
     public loginForm: FormGroup;
-    private configuration: ClientConfiguration = new ClientConfiguration();
 
-    constructor(private http: HttpClient,
-                private router: Router,
-                private cookieService: CookieService) { }
+    constructor(private store: Store<AppState>) { }
 
     ngOnInit() {
         this.loginForm = new FormGroup({
             'login': new FormControl(''),
             'password': new FormControl('')
+        });
+        this.subscription = this.store.select('adminLogin').subscribe(loginState => {
+            console.log("Received Login State update:", loginState);
         })
     }
 
     onSubmit() {
-
-        this.http.post(`${this.configuration.BaseUrl}/api/users/login`, this.loginForm.value)
-        .subscribe((response: any) => {
-            if(response.ticket) {
-                console.log("Logged in successfully", response);
-                this.cookieService.put('Ticket', response.ticket, { path: '/'});
-                this.router.navigate(['admin','events']);
-            }
-        }, error => {
-            console.log("some shit gone wrong", error);
-        })
+        this.store.dispatch(new LoggingInAction(this.loginForm.value));
     }
 
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
 }
