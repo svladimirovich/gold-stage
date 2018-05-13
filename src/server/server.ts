@@ -31,7 +31,9 @@ app.engine('html', (_, options, callback) => {
         url: options.req.url,
         // DI so that we can get lazy-loading to work differently (since we need it to just instantly render it)
         extraProviders: [
-            provideModuleMap(LAZY_MODULE_MAP)
+            provideModuleMap(LAZY_MODULE_MAP),
+            { provide: 'REQUEST', useValue: (options.req) },
+            { provide: 'RESPONSE', useValue: (options.res) }
         ]
     }).then(html => {
         callback(null, html);

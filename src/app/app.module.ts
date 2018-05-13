@@ -2,7 +2,7 @@ import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-bro
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { CookieModule } from 'ngx-cookie';
 
 import { AppComponent } from './app.component';
 import { NewslistComponent } from './newslist/newslist.component';
@@ -20,7 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule.withServerTransition({appId: 'gold-stage'}),
     HttpClientModule,
     BrowserTransferStateModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CookieModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
