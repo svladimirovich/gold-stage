@@ -1,12 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import { ClientConfiguration } from '../../../config.client';
+import { AdminUser } from '../../models/users';
+import { TransferState, makeStateKey } from '@angular/platform-browser';
+import { isPlatformServer } from '@angular/common';
 
-interface UsersServiceLoginResponse {
-    ticket?: string;
+interface BasicResponse {
     errorCode?: number;
     errorMessage?: string;
+}
+
+interface UsersServiceLoginResponse extends BasicResponse {
+    ticket?: string;
+}
+
+interface UsersServiceGetProfileResponse extends BasicResponse {
+    userProfile?: AdminUser;
 }
 
 @Injectable()
@@ -14,7 +24,16 @@ export class UsersService {
 
     private configuration: ClientConfiguration = new ClientConfiguration();
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+                @Inject(PLATFORM_ID) private platformId,
+                private transferState: TransferState) { }
+
+    private usersServiceHandler = (response: HttpErrorResponse) => {
+        return Observable.of({
+            errorCode: response.status,
+            errorMessage: (response.error && response.error.errorMessage) ? response.error.errorMessage : response.message,
+        });
+    };
 
     public login(login: string, password: string): Observable<UsersServiceLoginResponse> {
         return this.http.post(`${this.configuration.BaseUrl}/api/users/login`, { login, password })
@@ -23,12 +42,28 @@ export class UsersService {
                     ticket: response.ticket
                 }
             })
-            // TODO: must handle errors correctly since this isn't the only type of error that can turn out
-            .catch((response: HttpErrorResponse) => {
-                return Observable.of({
-                    errorCode: response.status,
-                    errorMessage: (response.error && response.error.errorMessage) ? response.error.errorMessage : response.message,
+            .catch(this.usersServiceHandler);
+    }
+
+    public getUserByTicket(ticket: string): Observable<UsersServiceGetProfileResponse> {
+        const transferKey = makeStateKey('users/byTicket/' + ticket);
+        if(this.transferState.hasKey(transferKey)) {
+            let result = this.transferState.get<UsersServiceGetProfileResponse>(transferKey, null);
+            this.transferState.remove(transferKey);
+            return Observable.of(result);
+        } else {
+            return this.http.get(`${this.configuration.BaseUrl}/api/users/byTicket`, { params: { ticket: ticket }})
+                .map((response: any) => {
+                    return {
+                        userProfile: response
+                    };
+                })
+                .catch(this.usersServiceHandler)
+                .do(result => {
+                    if (isPlatformServer(this.platformId)) {
+                        this.transferState.set<UsersServiceGetProfileResponse>(transferKey, result);
+                    }
                 });
-            });
+        }
     }
 }
