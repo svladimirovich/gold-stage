@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { EventsListComponent } from './events-list/events-list.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
     {
@@ -9,7 +11,14 @@ const routes: Routes = [
     }, {
         path: 'login',
         component: LoginComponent  
-    }
+    }, {
+        path: 'events',
+        component: EventsListComponent, canActivate: [AdminGuard]
+    },
+    // {
+    //     path: '**',
+    //     component: NotFound
+    // }
 ];
 
 @NgModule({

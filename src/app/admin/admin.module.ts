@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { LoginComponent } from './login/login.component';
+import { EventsListComponent } from './events-list/events-list.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,6 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     AdminRoutingModule
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent, EventsListComponent]
 })
 export class AdminModule { }

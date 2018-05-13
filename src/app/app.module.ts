@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NewslistComponent } from './newslist/newslist.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AdminGuard } from './admin/admin.guard';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     CookieModule.forRoot()
   ],
-  providers: [],
+  providers: [AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
