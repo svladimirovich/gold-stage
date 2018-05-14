@@ -14,7 +14,7 @@ const initialState: LoginState = {
     errorMessage: null,
 }
 
-export function LoginReducer(state = initialState, action: LoginAction): LoginState {
+export function loginReducer(state = initialState, action: LoginAction): LoginState {
     switch(action.type) {
         case LoginActions.ErrorOnLogIn:
             return {

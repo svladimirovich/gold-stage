@@ -5,17 +5,13 @@ import { ClientConfiguration } from '../../../config.client';
 import { AdminUser } from '../../models/users';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
+import { BasicServiceResponse, handleHttpClientError } from './common';
 
-interface BasicResponse {
-    errorCode?: number;
-    errorMessage?: string;
-}
-
-interface UsersServiceLoginResponse extends BasicResponse {
+interface UsersServiceLoginResponse extends BasicServiceResponse {
     ticket?: string;
 }
 
-interface UsersServiceGetProfileResponse extends BasicResponse {
+interface UsersServiceGetProfileResponse extends BasicServiceResponse {
     userProfile?: AdminUser;
 }
 
@@ -28,13 +24,6 @@ export class UsersService {
                 @Inject(PLATFORM_ID) private platformId,
                 private transferState: TransferState) { }
 
-    private usersServiceHandler = (response: HttpErrorResponse) => {
-        return Observable.of({
-            errorCode: response.status,
-            errorMessage: (response.error && response.error.errorMessage) ? response.error.errorMessage : response.message,
-        });
-    };
-
     public login(login: string, password: string): Observable<UsersServiceLoginResponse> {
         return this.http.post(`${this.configuration.BaseUrl}/api/users/login`, { login, password })
             .map((response: any) => {
@@ -42,7 +31,7 @@ export class UsersService {
                     ticket: response.ticket
                 }
             })
-            .catch(this.usersServiceHandler);
+            .catch(handleHttpClientError);
     }
 
     public getUserByTicket(ticket: string): Observable<UsersServiceGetProfileResponse> {
@@ -58,7 +47,7 @@ export class UsersService {
                         userProfile: response
                     };
                 })
-                .catch(this.usersServiceHandler)
+                .catch(handleHttpClientError)
                 .do(result => {
                     if (isPlatformServer(this.platformId)) {
                         this.transferState.set<UsersServiceGetProfileResponse>(transferKey, result);

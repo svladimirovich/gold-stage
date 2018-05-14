@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminGuard } from './admin/admin.guard';
 import { UsersService } from './services/users.service';
+import { EventsListEffects } from './admin/events-list/events-list.effects';
+import { StageEventsService } from './services/stage-events.service';
 
 
 @NgModule({
@@ -29,9 +31,9 @@ import { UsersService } from './services/users.service';
     AppRoutingModule,
     CookieModule.forRoot(),
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([LoginEffects])
+    EffectsModule.forRoot([LoginEffects, EventsListEffects])
   ],
-  providers: [AdminGuard, UsersService],
+  providers: [AdminGuard, UsersService, StageEventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
