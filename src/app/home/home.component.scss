@@ -1,0 +1,26 @@
+@import '~sass/variables';
+@import '~sass/mixins';
+
+section {
+    margin-top: 4em;
+    margin-bottom: 4em;
+
+    h1 {
+        font-size: $section-header-size;
+        color: $color-gold-shadow;
+    }
+
+    img {
+        margin-left: 10px;
+        margin-bottom: 6px;
+        float: right;
+        max-height: 300px;
+        max-width: 300px;
+        box-shadow: 5px 5px 5px $color-gold-shadow;
+    }
+
+    p {
+        font-size: $paragraph-text-size;
+        color: $color-gold-dirty;
+    }
+}

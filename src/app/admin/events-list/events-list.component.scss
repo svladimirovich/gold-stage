@@ -1,0 +1,28 @@
+@import '~sass/variables';
+@import '~sass/mixins';
+
+section {
+    margin: 1em;
+    padding-top: 2em;
+    padding-bottom: 1em;
+
+    img {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        float: left;
+        max-height: 300px;
+        max-width: 300px;
+        box-shadow: 5px 5px 5px $color-gold-shadow;
+    }
+
+    button {
+        @extend %btn-goldstage;
+        margin: .2em;
+        float: right;
+    }
+
+    box-shadow: 5px 5px 5px $color-gold-shadow;
+
+}
+
+

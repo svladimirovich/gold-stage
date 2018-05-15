@@ -4,10 +4,13 @@
   </div>
 </header>
 
-<section *ngFor="let event of events">
+<section *ngFor="let stageEvent of events" [ngStyle]="sectionBackground(stageEvent)">
   <div class="wrapper">
-      <img [src]="event.bannerBackground" [alt]="event.title" />
-      <h1>{{ event.title }}</h1>
-      <p>{{ event.shortDescription }}</p>
+      <img [src]="stageEvent.pictures[0]" [alt]="stageEvent.title" />
+      <h1>{{ stageEvent.title }}</h1>
+      <p>{{ stageEvent.shortDescription }}</p>
+      <button>Delete</button>
+      <button>Edit</button>
+      <div style="clear: both"></div>
   </div>
 </section>

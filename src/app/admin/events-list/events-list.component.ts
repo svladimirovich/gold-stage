@@ -31,4 +31,12 @@ export class EventsListComponent implements OnInit, OnDestroy {
         }
     }
 
+    sectionBackground(stageEvent) {
+        return {
+            'background': `linear-gradient(rgba(255, 245, 238, 0.7), rgba(255, 245, 238, 0.7)), url(${stageEvent.bannerBackground})`,
+            'background-size': "cover",
+            'background-position': 'center',
+        }
+    }
+
 }
