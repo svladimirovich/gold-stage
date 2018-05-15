@@ -9,12 +9,6 @@ const router = express.Router();
 
 router.use(express.json());
 
-/*
-router.get('/', (request, response) => {
-    response.status(200).json(usersList);
-});
-*/
-
 // authorize admin user
 router.post('/login', (request, response) => {
     let providedCredentials = request.body as AdminUser;
@@ -47,7 +41,7 @@ router.get('/byTicket', (request, response) => {
             return;
         }
     }
-    response.status(401).json(new ErrorResponse(404, "User not authenticated."));
+    response.status(403).json(new ErrorResponse(403, "User ticket invalid or expired."));
 })
 
 module.exports = router;
