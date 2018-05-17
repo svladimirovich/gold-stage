@@ -24,3 +24,23 @@
         background-color: rgba(255, 200, 60, 0.9);
     }
 }
+
+
+%form-goldstage {
+    fieldset {
+        padding-left: 0;
+        border: none;
+        label {
+            font-size: 1.2em;
+        }
+        input {
+            margin-top: .2em;
+            padding: .2em;
+            font-size: 1.2em;
+            font-family: $font-alice;
+        }
+    }
+    button {
+        @extend %btn-goldstage;
+    }    
+}

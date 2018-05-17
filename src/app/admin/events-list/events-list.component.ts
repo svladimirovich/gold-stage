@@ -5,6 +5,7 @@ import { StageEvent } from '../../../models/events';
 import { AppState } from '../../app.reducers';
 import { RequestedEventsListAction } from './events-list.actions';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-events-list',
@@ -16,7 +17,8 @@ export class EventsListComponent implements OnInit, OnDestroy {
     public events: Array<StageEvent> = [];
     private subscription: Subscription;
 
-    constructor(private store: Store<AppState>) { }
+    constructor(private router: Router,
+                private store: Store<AppState>) { }
 
     ngOnInit() {
         this.subscription = this.store.select("eventsList").subscribe(state => {
@@ -37,6 +39,10 @@ export class EventsListComponent implements OnInit, OnDestroy {
             'background-size': "cover",
             'background-position': 'center',
         }
+    }
+
+    editEvent(eventId) {
+        this.router.navigate(["admin", "event", eventId]);
     }
 
 }

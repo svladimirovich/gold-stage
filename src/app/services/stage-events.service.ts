@@ -7,13 +7,18 @@ import { ClientConfiguration } from '../../../config.client';
 import { BasicServiceResponse, handleHttpClientError } from './common';
 import { StageEvent } from '../../models/events';
 import { isPlatformServer } from '@angular/common';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
 
 interface StageEventsServiceGetAllResponse extends BasicServiceResponse {
     events?: Array<StageEvent>;
 }
 
+interface StageEventsServiceGetReponse extends BasicServiceResponse {
+    event?: StageEvent;
+}
+
 @Injectable()
-export class StageEventsService {
+export class StageEventsService implements Resolve<StageEventsServiceGetReponse> {
 
     private configuration: ClientConfiguration = new ClientConfiguration();
 
@@ -22,7 +27,6 @@ export class StageEventsService {
                 private transferState: TransferState) { }
 
     public getAllStageEvents(): Observable<StageEventsServiceGetAllResponse> {
-        // TODO: actially we should check for authenticated user
         const transferKey = makeStateKey('events');
         if(this.transferState.hasKey(transferKey)) {
             let result = this.transferState.get<StageEventsServiceGetAllResponse>(transferKey, null);
@@ -42,5 +46,31 @@ export class StageEventsService {
                     }
                 });
         }
+    }
+
+    public getStageEvent(id: string): Observable<StageEventsServiceGetReponse> {
+        const transferKey = makeStateKey(`event/${id}`);
+        if(this.transferState.hasKey(transferKey)) {
+            let result = this.transferState.get<StageEventsServiceGetReponse>(transferKey, null);
+            this.transferState.remove(transferKey);
+            return Observable.of(result);
+        } else {        
+            return this.http.get(`${this.configuration.BaseUrl}/api/events/${id}`)
+                .map((response: any) => {
+                    return {
+                        event: response
+                    }
+                })
+                .catch(handleHttpClientError)
+                .do(result => {
+                    if (isPlatformServer(this.platformId)) {
+                        this.transferState.set<StageEventsServiceGetReponse>(transferKey, result);
+                    }
+                });
+        }
+    }
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<StageEventsServiceGetReponse> {
+        return this.getStageEvent(route.params["id"]);
     }
 }

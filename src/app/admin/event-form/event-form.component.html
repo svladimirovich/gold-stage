@@ -1,0 +1,39 @@
+<header>
+  <div class="wrapper dark-text-board">
+    <h1>Event form</h1>
+  </div>
+</header>
+
+<section>
+  <div class="wrapper">
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <label for="title">Event title:</label><br/>
+        <input name="title" id="title" formControlName="title" type="text" />
+      </fieldset>
+      <fieldset>
+        <label for="date">Event date:</label><br/>
+        <input name="date" id="date" formControlName="date" type="text" />
+      </fieldset>
+      <fieldset>
+        <label for="shortDescription">Short description:</label><br/>
+        <textarea name="shortDescription" id="shortDescription" formControlName="shortDescription"></textarea>
+      </fieldset>
+      <fieldset>
+        <label for="fullDescription">Full description:</label><br/>
+        <textarea name="fullDescription" id="fullDescription" formControlName="fullDescription"></textarea>
+      </fieldset>
+      <fieldset>
+        <label for="location">Event location:</label><br/>
+        <input name="location" id="location" formControlName="location" type="text" />
+      </fieldset>
+      <fieldset>
+        <label for="bannerBackground">Event background image:</label><br/>
+        <input name="bannerBackground" id="bannerBackground" formControlName="bannerBackground" type="text" />
+      </fieldset>
+      <br/>
+      <br/>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</section>

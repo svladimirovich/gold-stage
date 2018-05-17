@@ -10,7 +10,7 @@
       <h1>{{ stageEvent.title }}</h1>
       <p>{{ stageEvent.shortDescription }}</p>
       <button>Delete</button>
-      <button>Edit</button>
+      <button (click)="editEvent(stageEvent.id)">Edit</button>
       <div style="clear: both"></div>
   </div>
 </section>

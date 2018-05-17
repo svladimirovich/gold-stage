@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { EventsListComponent } from './events-list/events-list.component';
 import { AdminGuard } from './admin.guard';
+import { EventFormComponent } from './event-form/event-form.component';
+import { StageEventsService } from '../services/stage-events.service';
 
 const routes: Routes = [
     {
@@ -11,6 +13,9 @@ const routes: Routes = [
     }, {
         path: 'login',
         component: LoginComponent  
+    }, {
+        path: 'event/:id',
+        component: EventFormComponent, canActivate: [AdminGuard], resolve: { eventResolverResponse: StageEventsService }
     }, {
         path: 'events',
         component: EventsListComponent, canActivate: [AdminGuard]
