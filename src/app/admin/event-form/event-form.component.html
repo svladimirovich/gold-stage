@@ -13,7 +13,9 @@
       </fieldset>
       <fieldset>
         <label for="date">Event date:</label><br/>
-        <input name="date" id="date" formControlName="date" type="text" />
+        <input name="date" id="date" formControlName="date" [matDatepicker]="eventDatePicker">
+        <mat-datepicker-toggle [for]="eventDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #eventDatePicker></mat-datepicker>
       </fieldset>
       <fieldset>
         <label for="shortDescription">Short description:</label><br/>

@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CookieModule } from 'ngx-cookie';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { appReducers } from './app.reducers';
 import { LoginEffects } from './admin/login/login.effects';
@@ -26,6 +27,7 @@ import { StageEventsService } from './services/stage-events.service';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'gold-stage'}),
+    BrowserAnimationsModule,
     HttpClientModule,
     BrowserTransferStateModule,
     AppRoutingModule,
