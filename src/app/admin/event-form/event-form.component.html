@@ -1,6 +1,6 @@
 <header>
   <div class="wrapper dark-text-board">
-    <h1>Event form</h1>
+    <h1>Stage event form</h1>
   </div>
 </header>
 
@@ -29,13 +29,42 @@
         <label for="location">Event location:</label><br/>
         <input name="location" id="location" formControlName="location" type="text" />
       </fieldset>
+      <div class="background-image-input-section">
+        <div class="background-input">
+          <fieldset>
+            <label for="bannerBackground">Event background image:</label><br/>
+            <input name="bannerBackground" id="bannerBackground" formControlName="bannerBackground" type="text" />
+          </fieldset>
+        </div>
+        <div class="background-image">
+          <img [src]="eventForm.value.bannerBackground" />
+        </div>
+      </div>
+      <div class="price-input-section">
+        <div class="minimum">
+          <fieldset>
+            <label for="minTicketPrice">Minimum ticket price:</label><br/>
+            <input name="minTicketPrice" id="minTicketPrice" formControlName="minTicketPrice" type="number" />
+          </fieldset>
+        </div>
+        <div class="maximum">
+          <fieldset>
+            <label for="maxTicketPrice">Maximum ticket price:</label><br/>
+            <input name="maxTicketPrice" id="maxTicketPrice" formControlName="maxTicketPrice" type="number" />
+          </fieldset>
+        </div>
+      </div>
       <fieldset>
-        <label for="bannerBackground">Event background image:</label><br/>
-        <input name="bannerBackground" id="bannerBackground" formControlName="bannerBackground" type="text" />
+        <label for="eventType">Event type:</label><br/>
+        <select name="eventType" id="eventType" formControlName="eventType">
+          <option value="ballet">Ballet Performance</option>
+          <option value="music">Live Music</option>
+        </select>
       </fieldset>
       <br/>
       <br/>
       <button type="submit">Save</button>
+      <button [routerLink]="['/admin','events']">Cancel</button>
     </form>
   </div>
 </section>

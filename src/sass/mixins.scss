@@ -36,8 +36,28 @@
         input {
             margin-top: .2em;
             padding: .2em;
-            font-size: 1.2em;
+            font-size: $paragraph-text-size;
             font-family: $font-alice;
+            width: 100%;
+
+            // material date picker creates this property
+            // we want date picker input to be this wide
+            &[ng-reflect-mat-datepicker] {
+                width: 5em;
+            }
+        }
+        select {
+            margin-top: .2em;
+            padding: .2em;
+            font-size: $paragraph-text-size;
+            font-family: $font-alice;
+        }
+        textarea {
+            margin-top: .2em;
+            padding: .2em;
+            font-size: $paragraph-text-size;
+            width: 100%;
+            height: ($paragraph-text-size * 6) + (.2em * 2) + 0.125em; // + padding + border
         }
     }
     button {
