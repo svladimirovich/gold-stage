@@ -3,6 +3,10 @@
 
 form {
     @extend %form-goldstage;
+
+    input {
+        width: 100%;
+    }
 }
 
 section {
@@ -49,5 +53,43 @@ DIV.price-input-section {
         min-width: 10em;
         width: 22%;
 
+    }
+}
+
+div.event-pictures {
+    div {
+        display: inline-block;
+        margin: .2em;
+
+        img {
+            max-height: 6em;
+        }
+
+        button {
+            min-width: unset;
+            width: 100%;
+            font-size: .8em;
+            
+        }
+    }
+}
+
+div.add-picture-box {
+
+    div {
+        display: inline-block;
+
+        &:first-child {
+            width: 70%;
+        }
+        &:last-child {
+            width: 25%;
+            min-width: 5em;
+
+            button {
+                margin-left: 1em;
+                min-width: unset;
+            }
+        }
     }
 }

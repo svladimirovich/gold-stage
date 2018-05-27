@@ -15,7 +15,7 @@ const initialState: EventsListState = {
     errorMessage: null,
 }
 
-export function EventsListReducer(state = initialState, action: EventsListAction): EventsListState {
+export function eventsListReducer(state = initialState, action: EventsListAction): EventsListState {
     switch(action.type) {
         case EventsListActions.RequestedList:
             return {

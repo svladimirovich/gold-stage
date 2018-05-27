@@ -20,6 +20,11 @@
         }
     }
 
+    &:disabled {
+        background-color:  rgba(255, 200, 60, 0.3);
+        color: gray; 
+    }
+
     &:active {
         background-color: rgba(255, 200, 60, 0.9);
     }
@@ -38,7 +43,6 @@
             padding: .2em;
             font-size: $paragraph-text-size;
             font-family: $font-alice;
-            width: 100%;
 
             // material date picker creates this property
             // we want date picker input to be this wide
