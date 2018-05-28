@@ -17,6 +17,7 @@ import { AdminGuard } from './admin/admin.guard';
 import { UsersService } from './services/users.service';
 import { EventsListEffects } from './admin/events-list/events-list.effects';
 import { StageEventsService } from './services/stage-events.service';
+import { EventFormEffects } from './admin/event-form/event-form.effects';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { StageEventsService } from './services/stage-events.service';
     AppRoutingModule,
     CookieModule.forRoot(),
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([LoginEffects, EventsListEffects])
+    // TODO: these are /admin section specific, shouldn't I move them from root to admin module?
+    EffectsModule.forRoot([LoginEffects, EventsListEffects, EventFormEffects]),
   ],
   providers: [AdminGuard, UsersService, StageEventsService],
   bootstrap: [AppComponent]

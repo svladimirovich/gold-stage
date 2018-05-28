@@ -70,6 +70,14 @@ export class StageEventsService implements Resolve<StageEventsServiceGetReponse>
         }
     }
 
+    public updateStageEvent(stageEvent: StageEvent): Observable<BasicServiceResponse> {
+        return this.http.patch(`${this.configuration.BaseUrl}/api/events/${stageEvent.id}`, stageEvent)
+            .map((response: any) => {
+                return {};
+            })
+            .catch(handleHttpClientError);
+    }
+
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<StageEventsServiceGetReponse> {
         return this.getStageEvent(route.params["id"]);
     }

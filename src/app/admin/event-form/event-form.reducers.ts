@@ -39,6 +39,13 @@ export function eventFormReducer(state = initialState, action: EventFormAction):
                 ...state,
                 stageEvent: action.stageEvent,
             }
+        case EventFormActions.FormSaved:
+            return {
+                ...state,
+                stageEvent: action.stageEvent,
+                errorCode: action.errorCode,
+                errorMessage: action.errorMessage
+            }
         default:
             return state;
     }

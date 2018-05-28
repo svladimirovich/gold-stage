@@ -32,7 +32,7 @@ export class EventFormComponent implements OnInit, OnDestroy {
         });
     }
 
-    private createForm(stageEvent: StageEvent) {
+    private createForm(stageEvent: StageEvent): FormGroup {
         return new FormGroup({
             'id': new FormControl(stageEvent.id),
             'title': new FormControl(stageEvent.title),
@@ -51,13 +51,21 @@ export class EventFormComponent implements OnInit, OnDestroy {
         });
     }
 
+    private getValue(): StageEvent {
+        let pictures: FormArray = this.eventForm.get('pictures') as FormArray;
+        return {
+            ...this.eventForm.value,
+            pictures: pictures.value.map(item => item.url),
+        }
+    }
+
     ngOnDestroy() {
         if(this.subscription)
             this.subscription.unsubscribe();
     }
 
     onSave() {
-        this.store.dispatch(new SavingFormAction(this.eventForm.value));
+        this.store.dispatch(new SavingFormAction(this.getValue()));
     }
 
     onRemovePicture(index: number) {

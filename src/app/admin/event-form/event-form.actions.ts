@@ -14,6 +14,9 @@ export class SavingFormAction implements Action {
 
 export class FormSavedAction implements Action {
     readonly type = EventFormActions.FormSaved;
+    constructor(public stageEvent: StageEvent,
+                public errorCode?: number,
+                public errorMessage?: string) {}
 }
 
 export class FormLoadedAction implements Action {
