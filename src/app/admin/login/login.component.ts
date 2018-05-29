@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Store } from '@ngrx/store';
 
 import { ClientConfiguration } from '../../../../config.client';
-import { AppState } from '../../app.reducers';
+import { AdminState, AdminFeatureState } from '../admin.reducers';
 import { LoggingInAction } from './login.actions';
 
 @Component({
@@ -19,15 +19,15 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     public loginForm: FormGroup;
 
-    constructor(private store: Store<AppState>) { }
+    constructor(private store: Store<AdminFeatureState>) { }
 
     ngOnInit() {
         this.loginForm = new FormGroup({
             'login': new FormControl(''),
             'password': new FormControl('')
         });
-        this.subscription = this.store.select('adminLogin').subscribe(loginState => {
-            console.log("Received Login State update:", loginState);
+        this.subscription = this.store.select('admin').subscribe(state => {
+            console.log("Received Login State update:", state.adminLogin);
         })
     }
 

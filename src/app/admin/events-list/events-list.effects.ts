@@ -8,7 +8,7 @@ export class EventsListEffects {
                 private eventsService: StageEventsService) {}
 
     @Effect()
-    login = this.actionsObservable
+    onGetEventList = this.actionsObservable
         .ofType(EventsListActions.RequestedList)
         .switchMap((action: RequestedEventsListAction) => {
             return this.eventsService.getAllStageEvents();

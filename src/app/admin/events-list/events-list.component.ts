@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { StageEvent } from '../../../models/events';
-import { AppState } from '../../app.reducers';
+import { AdminState, AdminFeatureState } from '../admin.reducers';
 import { RequestedEventsListAction } from './events-list.actions';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-events-list',
@@ -18,11 +18,11 @@ export class EventsListComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
 
     constructor(private router: Router,
-                private store: Store<AppState>) { }
+                private store: Store<AdminFeatureState>) { }
 
     ngOnInit() {
-        this.subscription = this.store.select("eventsList").subscribe(state => {
-            this.events = state.events;
+        this.subscription = this.store.select("admin").subscribe(state => {
+            this.events = state.eventsList.events;
         })
         this.store.dispatch(new RequestedEventsListAction());
     }

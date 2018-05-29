@@ -4,9 +4,9 @@ import { ActivatedRoute, Data } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { StageEvent } from '../../../models/events';
-import { AppState } from '../../app.reducers';
 import { FormLoadedAction, SavingFormAction } from './event-form.actions';
 import { Subscription } from 'rxjs';
+import { AdminState, AdminFeatureState } from '../admin.reducers';
 
 @Component({
     selector: 'app-event-form',
@@ -19,11 +19,11 @@ export class EventFormComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
 
     constructor(private route: ActivatedRoute,
-                private store: Store<AppState>) { }
+                private store: Store<AdminFeatureState>) { }
 
     ngOnInit() {
-        this.subscription = this.store.select("eventForm").subscribe(state => {
-            this.eventForm = this.createForm(state.stageEvent);
+        this.subscription = this.store.select("admin").subscribe(state => {
+            this.eventForm = this.createForm(state.eventForm.stageEvent);
         });
 
         this.route.data.subscribe((data: Data) => {
