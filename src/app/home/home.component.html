@@ -27,6 +27,12 @@
     <p>Ullamco snackwave veniam tousled. Drinking vinegar literally hammock et, godard hexagon bicycle rights sriracha leggings artisan. Gochujang knausgaard stumptown air plant. Shoreditch actually wolf, fashion axe listicle ex offal aesthetic brunch irony.</p>
     <p>Hella shabby chic vaporware iceland consectetur ut quinoa fanny pack bushwick venmo fam. Commodo magna aute twee distillery street art irure in gastropub man bun glossier edison bulb kogi. Magna humblebrag dreamcatcher chicharrones, quis hashtag disrupt brooklyn flannel knausgaard. Fingerstache irony pickled, chillwave vaporware prism exercitation forage kale chips ipsum pug bespoke brunch twee.</p>
   </div>
+  <div class="wrapper" *ngFor="let ballet of balletEvents">
+    <img [src]="ballet.pictures[0]" [alt]="ballet.title" *ngIf="ballet.pictures.length > 0" />
+    <h1>{{ ballet.title }}</h1>
+    <p>{{ ballet.shortDescription }}</p>
+    <div style="clear: both"></div>
+  </div>
 </section>
 
 <section>
@@ -36,6 +42,12 @@
     </a>
     <p>Selfies hell of aesthetic craft beer palo santo portland raw denim sed asymmetrical synth cardigan. Cloud bread etsy flannel man bun culpa hella stumptown marfa incididunt listicle franzen 8-bit. Vegan bushwick shaman reprehenderit voluptate. Twee DIY mumblecore bicycle rights offal shaman humblebrag PBR&B mixtape lyft irure lorem 8-bit. Pabst gastropub snackwave, elit yr artisan keffiyeh. Listicle authentic fingerstache nulla, esse edison bulb prism shaman. Biodiesel locavore gentrify pug, DIY kickstarter do scenester incididunt ramps.</p>
     <p>Lyft twee lomo wayfarers, portland hexagon prism blog humblebrag austin. Pinterest prism hot chicken, truffaut selvage bespoke XOXO everyday carry taxidermy. Tempor ex taiyaki twee put a bird on it fanny pack photo booth microdosing banh mi bushwick. Lorem cred salvia typewriter pitchfork aliqua. Marfa knausgaard labore meggings blog retro live-edge edison bulb pitchfork prism ipsum iPhone craft beer. Tacos schlitz ipsum food truck, et crucifix occupy culpa truffaut dolore labore flexitarian hella four loko exercitation. Craft beer synth pitchfork iceland truffaut.</p>
+  </div>
+  <div class="wrapper" *ngFor="let music of musicEvents">
+    <img [src]="music.pictures[0]" [alt]="music.title" *ngIf="music.pictures.length > 0" />
+    <h1>{{ music.title }}</h1>
+    <p>{{ music.shortDescription }}</p>
+    <div style="clear: both"></div>
   </div>
 </section>
   

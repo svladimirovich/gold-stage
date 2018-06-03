@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './services/users.service';
 import { StageEventsService } from './services/stage-events.service';
+import { HomeEffects } from './home/home.effects';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { StageEventsService } from './services/stage-events.service';
     AppRoutingModule,
     CookieModule.forRoot(),
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([HomeEffects]),
   ],
   providers: [UsersService, StageEventsService],
   bootstrap: [AppComponent]
