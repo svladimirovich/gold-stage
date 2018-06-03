@@ -28,13 +28,46 @@ export const eventsList = [
     location: "Theatre Square, 1, Moscow, Russia. Historic Stage",
     bannerBackground: "http://www.danseenseine.org/wp-content/uploads/2012/12/Fille-broadcast-eng.jpg",
     pictures: [
-        "https://goo.gl/4gbaFn",
-        "https://goo.gl/TG2ZJa",
-        "https://goo.gl/5XfZfB"
+      "https://goo.gl/4gbaFn",
+      "https://goo.gl/TG2ZJa",
+      "https://goo.gl/5XfZfB"
     ],
     minTicketPrice: 200,
     maxTicketPrice: 600,
     soldOut: false,
     eventType: "ballet"
+  },
+  {
+    id: "76c45b5e-3c1c-21c8-56a7-ee3ecbb31be4",
+    title: "Red Hot Chili Peppers",
+    date: "2018-07-17",
+    shortDescription: "Axl Rose pinterest lo-fi vexillologist franzen keffiyeh shabby chic. PBR&B chambray slow-carb thundercats, subway tile next level mumblecore keytar shabby chic tbh. Shabby chic normcore vice brooklyn occupy vexillologist blog put a bird on it retro plaid gastropub. Copper mug cornhole sartorial cred lumbersexual. Lyft pug fixie enamel pin letterpress, flannel pok pok air plant selvage adaptogen. Franzen shabby chic before they sold out pok pok distillery squid chia poke etsy pug twee.",
+    fullDescription: "Celiac hella brooklyn street art 3 wolf moon, fam snackwave yuccie kale chips before they sold out brunch cornhole. Irony cloud bread put a bird on it pok pok chambray hashtag enamel pin waistcoat messenger bag adaptogen hammock neutra vice. Jianbing pitchfork microdosing, keytar brunch sriracha celiac crucifix live-edge poutine everyday carry. Readymade selvage sriracha, bushwick before they sold out direct trade vexillologist cornhole chartreuse. Cronut sriracha poke, brunch venmo swag iPhone humblebrag air plant fashion axe banjo gentrify. Edison bulb deep v 3 wolf moon pork belly schlitz.",
+    location: "California",
+    bannerBackground: "https://upload.wikimedia.org/wikipedia/commons/1/16/Rhcp-live-pinkpop05.jpg",
+    pictures : [
+      "http://www.metalsucks.net/wp-content/uploads/2014/02/Axl-Rose-and-RHCP.jpg",
+      "http://assets.blabbermouth.net/media/redhotchilipeppers2016bandpressphoto_638.jpg",
+      "https://assets.radiox.co.uk/2017/29/flea-red-hot-chili-peppers-responds-to-retirement-rumours-1500459755-article-0.jpg",
+    ],
+    minTicketPrice: 120,
+    maxTicketPrice: 230,
+    soldOut: false,
+    eventType: "music",
+  },
+  {
+    id: "3e8a889a-b1b7-4b48-9f6d-e594f4ecf318",
+    title: "Faith No More",
+    date: "2015-08-07",
+    shortDescription: "Bicycle rights excepteur tattooed, blue bottle in blog consequat tofu. Semiotics twee iceland butcher, freegan esse banjo do sartorial kickstarter fingerstache poke. Asymmetrical incididunt literally helvetica, blue bottle art party echo park hoodie glossier keytar portland farm-to-table. Snackwave iceland poke bespoke ennui tofu activated charcoal mumblecore lyft.",
+    fullDescription: "Four loko voluptate chicharrones, ullamco freegan dolore sartorial mixtape reprehenderit pok pok irure bespoke. DIY craft beer crucifix kinfolk. Hammock vape cardigan voluptate austin retro consequat kitsch cray banjo. Af next level copper mug, exercitation vegan tumeric esse. Tumeric actually dolore, craft beer blog ugh edison bulb offal bicycle rights flannel.",
+    location: "Ricoh Coliseum, Toronto, ON, Canada",
+    bannerBackground: "https://image.ibb.co/iyAgQy/faithnomore.jpg",
+    pictures : [],
+    minTicketPrice: 80,
+    maxTicketPrice: 150,
+    soldOut: true,
+    eventType: "music",
   }
+  
 ];

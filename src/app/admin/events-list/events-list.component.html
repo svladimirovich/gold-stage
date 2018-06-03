@@ -14,7 +14,7 @@
 
 <section *ngFor="let stageEvent of events" [ngStyle]="sectionBackground(stageEvent)">
   <div class="wrapper">
-      <img [src]="stageEvent.pictures[0]" [alt]="stageEvent.title" />
+      <img [src]="stageEvent.pictures[0]" [alt]="stageEvent.title" *ngIf="stageEvent.pictures.length > 0" />
       <h1>{{ stageEvent.title }}</h1>
       <p>{{ stageEvent.shortDescription }}</p>
       <button>Delete</button>
