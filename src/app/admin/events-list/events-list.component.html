@@ -17,7 +17,7 @@
       <img [src]="stageEvent.pictures[0]" [alt]="stageEvent.title" *ngIf="stageEvent.pictures.length > 0" />
       <h1>{{ stageEvent.title }}</h1>
       <p>{{ stageEvent.shortDescription }}</p>
-      <button>Delete</button>
+      <button (click)="deleteEvent(stageEvent.id)">Delete</button>
       <button (click)="editEvent(stageEvent.id)">Edit</button>
       <div style="clear: both"></div>
   </div>

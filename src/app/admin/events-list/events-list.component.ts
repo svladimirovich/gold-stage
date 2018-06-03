@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 import { StageEvent } from '../../../models/events';
 import { AdminState, AdminFeatureState } from '../admin.reducers';
-import { RequestedEventsListAction } from './events-list.actions';
+import { RequestedEventsListAction, DeleteStageEventAction } from './events-list.actions';
 
 @Component({
     selector: 'app-events-list',
@@ -43,6 +43,12 @@ export class EventsListComponent implements OnInit, OnDestroy {
 
     editEvent(eventId) {
         this.router.navigate(["admin", "event", eventId]);
+    }
+
+    deleteEvent(eventId) {
+        if(window && window.confirm("Are you sure you want to delete this item?")) {
+            this.store.dispatch(new DeleteStageEventAction(eventId));
+        }
     }
 
 }

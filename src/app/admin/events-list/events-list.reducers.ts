@@ -17,12 +17,12 @@ const initialState: EventsListState = {
 
 export function eventsListReducer(state = initialState, action: EventsListAction): EventsListState {
     switch(action.type) {
-        case EventsListActions.RequestedList:
+        case EventsListActions.RequestingList:
             return {
                 ...state,
                 state: "loading",
             }
-        case EventsListActions.ReceivedList:
+        case EventsListActions.UpdatedList:
             return {
                 state: "idle",
                 events: (action.events && action.events.length > 0) ? action.events : state.events,

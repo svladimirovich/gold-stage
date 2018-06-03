@@ -86,6 +86,14 @@ export class StageEventsService implements Resolve<StageEventsServiceGetReponse>
             .catch(handleHttpClientError);
     }
     
+    public deleteStageEvent(id: string): Observable<BasicServiceResponse> {
+        return this.http.delete(`${this.configuration.BaseUrl}/api/events/${id}`)
+            .map((response: any) => {
+                return {};
+            })
+            .catch(handleHttpClientError);
+    }
+
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<StageEventsServiceGetReponse> {
         return this.getStageEvent(route.params["id"]);
     }
