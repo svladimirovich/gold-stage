@@ -2,27 +2,26 @@ import { Action } from '@ngrx/store';
 import { StageEvent } from '../../../models/events';
 
 export enum EventFormActions {
-    SavingForm = "[EventForm] Saving Form",
-    FormSaved = "[EventForm] Form Saved",
-    FormLoaded = "[EventForm] Form Loaded"
+    UpdatingStageEvent = "[EventForm] Updating Stage Event",
+    StageEventLoaded = "[EventForm] Stage Event Loaded",
+    CreatingStageEvent = "[EventForm] Creating Stage Event",
 }
 
-export class SavingFormAction implements Action {
-    readonly type = EventFormActions.SavingForm;
+export class UpdatingStageEventAction implements Action {
+    readonly type = EventFormActions.UpdatingStageEvent;
     constructor(public stageEvent: StageEvent) {}
 }
 
-export class FormSavedAction implements Action {
-    readonly type = EventFormActions.FormSaved;
-    constructor(public stageEvent: StageEvent,
+export class StageEventLoadedAction implements Action {
+    readonly type = EventFormActions.StageEventLoaded;
+    constructor(public stageEvent?: StageEvent,
                 public errorCode?: number,
                 public errorMessage?: string) {}
 }
 
-export class FormLoadedAction implements Action {
-    readonly type = EventFormActions.FormLoaded;
+export class CreatingStageEventAction implements Action {
+    readonly type = EventFormActions.CreatingStageEvent;
     constructor(public stageEvent: StageEvent) {}
 }
 
-
-export type EventFormAction = SavingFormAction | FormSavedAction | FormLoadedAction;
+export type EventFormAction = UpdatingStageEventAction | StageEventLoadedAction | CreatingStageEventAction;

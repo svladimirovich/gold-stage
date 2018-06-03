@@ -77,7 +77,7 @@
       </fieldset>
       <br/>
       <br/>
-      <button [disabled]="!eventForm.dirty" (click)="onSave()">Save</button>
+      <button [disabled]="!eventForm.dirty" (click)="onSave()">{{ (isEditMode) ? 'Save' : 'Create' }} </button>
       <button [routerLink]="['/admin','events']">Cancel</button>
     </form>
   </div>

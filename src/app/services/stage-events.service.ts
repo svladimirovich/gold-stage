@@ -78,6 +78,14 @@ export class StageEventsService implements Resolve<StageEventsServiceGetReponse>
             .catch(handleHttpClientError);
     }
 
+    public insertStageEvent(stageEvent: StageEvent): Observable<BasicServiceResponse> {
+        return this.http.post(`${this.configuration.BaseUrl}/api/events`, stageEvent)
+            .map((response: any) => {
+                return {};
+            })
+            .catch(handleHttpClientError);
+    }
+    
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<StageEventsServiceGetReponse> {
         return this.getStageEvent(route.params["id"]);
     }

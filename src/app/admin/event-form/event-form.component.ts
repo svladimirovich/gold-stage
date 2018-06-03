@@ -4,7 +4,7 @@ import { ActivatedRoute, Data } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { StageEvent } from '../../../models/events';
-import { FormLoadedAction, SavingFormAction } from './event-form.actions';
+import { StageEventLoadedAction, UpdatingStageEventAction, CreatingStageEventAction } from './event-form.actions';
 import { Subscription } from 'rxjs';
 import { AdminState, AdminFeatureState } from '../admin.reducers';
 
@@ -16,6 +16,7 @@ import { AdminState, AdminFeatureState } from '../admin.reducers';
 export class EventFormComponent implements OnInit, OnDestroy {
 
     public eventForm: FormGroup;
+    public isEditMode: boolean = false;
     private subscription: Subscription;
 
     constructor(private route: ActivatedRoute,
@@ -24,12 +25,20 @@ export class EventFormComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.subscription = this.store.select("admin").subscribe(state => {
             this.eventForm = this.createForm(state.eventForm.stageEvent);
+            this.isEditMode = state.eventForm.isEditMode;
         });
 
-        this.route.data.subscribe((data: Data) => {
-            let stageEvent: StageEvent = (data.eventResolverResponse && data.eventResolverResponse.event) || {};
-            this.store.dispatch(new FormLoadedAction(stageEvent));            
-        });
+        if(this.route.data) {
+            this.route.data.subscribe((data: Data) => {
+                let stageEvent: StageEvent = (data.stageEventResolver && data.stageEventResolver.event) || null;
+                if(stageEvent) {
+                    this.store.dispatch(new StageEventLoadedAction(stageEvent));            
+                } else {
+                    // create new stage event
+                    this.store.dispatch(new StageEventLoadedAction());
+                }
+            });
+        }
     }
 
     private createForm(stageEvent: StageEvent): FormGroup {
@@ -65,7 +74,10 @@ export class EventFormComponent implements OnInit, OnDestroy {
     }
 
     onSave() {
-        this.store.dispatch(new SavingFormAction(this.getValue()));
+        if(this.isEditMode)
+            this.store.dispatch(new UpdatingStageEventAction(this.getValue()));
+        else
+            this.store.dispatch(new CreatingStageEventAction(this.getValue()));
     }
 
     onRemovePicture(index: number) {

@@ -14,8 +14,11 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent  
     }, {
+        path: 'event/new',
+        component: EventFormComponent, canActivate: [AdminGuard]
+    }, {
         path: 'event/:id',
-        component: EventFormComponent, canActivate: [AdminGuard], resolve: { eventResolverResponse: StageEventsService }
+        component: EventFormComponent, canActivate: [AdminGuard], resolve: { stageEventResolver: StageEventsService }
     }, {
         path: 'events',
         component: EventsListComponent, canActivate: [AdminGuard]

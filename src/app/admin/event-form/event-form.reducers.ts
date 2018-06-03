@@ -4,6 +4,7 @@ import { EventFormAction, EventFormActions } from "./event-form.actions";
 
 export interface EventFormState {
     state: "loading" | "idle" | "saving";
+    isEditMode: boolean;
     stageEvent: StageEvent;
     addPictureUrl: string;
     errorCode: number;
@@ -12,7 +13,15 @@ export interface EventFormState {
 
 const initialState: EventFormState = {
     state: "idle",
-    stageEvent: {
+    isEditMode: false,
+    stageEvent: initializeStageEvent(),
+    addPictureUrl: "",
+    errorCode: null,
+    errorMessage: null,
+}
+
+function initializeStageEvent(): StageEvent {
+    return {
         id: generateGuid(),
         title: "",
         date: new Date(),
@@ -25,24 +34,16 @@ const initialState: EventFormState = {
         minTicketPrice: 0,
         pictures: [],
         soldOut: false,
-    },
-    addPictureUrl: "",
-    errorCode: null,
-    errorMessage: null,
+    }
 }
 
 export function eventFormReducer(state = initialState, action: EventFormAction): EventFormState {
-    const stageEvent = copyStageEvent(state.stageEvent);
     switch(action.type) {
-        case EventFormActions.FormLoaded:
+        case EventFormActions.StageEventLoaded:
             return {
                 ...state,
-                stageEvent: action.stageEvent,
-            }
-        case EventFormActions.FormSaved:
-            return {
-                ...state,
-                stageEvent: action.stageEvent,
+                stageEvent: (action.stageEvent) ? copyStageEvent(action.stageEvent) : initializeStageEvent(),
+                isEditMode: (action.stageEvent) ? ((action.errorCode || action.errorMessage) ? state.isEditMode : true) : false,
                 errorCode: action.errorCode,
                 errorMessage: action.errorMessage
             }
