@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
     private subscription: Subscription;
 
     public musicEvents: Array<StageEvent> = [];
+    public musicEventIndex: number = 0;
     public balletEvents: Array<StageEvent> = [];
+    public balletEventIndex: number = 0;
 
     constructor(private store: Store<AppState>) { }
 
@@ -32,5 +34,49 @@ export class HomeComponent implements OnInit {
     onNavClick(anchorName) {
         document.querySelector(`a[name='${anchorName}']`).scrollIntoView({ behavior: 'smooth' });
         return false;
+    }
+
+    musicLeft() {
+        if(--this.musicEventIndex == -1)
+            this.musicEventIndex = this.musicEvents.length - 1;
+    }
+
+    balletLeft() {
+        if(--this.balletEventIndex == -1)
+            this.balletEventIndex = this.balletEvents.length - 1;
+    }
+
+    musicRight() {
+        if(++this.musicEventIndex == this.musicEvents.length)
+            this.musicEventIndex = 0;
+    }
+
+    balletRight() {
+        if(++this.balletEventIndex == this.balletEvents.length)
+            this.balletEventIndex = 0;
+    }
+
+    gotoMusic(index) {
+        this.musicEventIndex = index;
+    }
+
+    gotoBallet(index) {
+        this.balletEventIndex = index;
+    }
+
+    brightBackground(stageEvent: StageEvent) {
+        return {
+            'background': `linear-gradient(rgba(255, 245, 238, 0.7), rgba(255, 245, 238, 0.7)), url(${stageEvent.bannerBackground})`,
+            'background-size': "cover",
+            'background-position': 'center',
+        }
+    }
+
+    darkBackground(stageEvent: StageEvent) {
+        return {
+            'background': `linear-gradient(rgba(1, 1, 1, 0.8), rgba(1, 1, 1, 0.8)), url(${stageEvent.bannerBackground})`,
+            'background-size': "cover",
+            'background-position': 'center',
+        }
     }
 }

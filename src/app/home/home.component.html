@@ -10,44 +10,53 @@
       <ul>
         <li><a href="#about" (click)="onNavClick('about')">About</a></li>
         <li><a href="#contacts" (click)="onNavClick('contacts')">Contacts</a></li>
-        <li><a href="#life-shows" (click)="onNavClick('life-shows')">Live Shows</a></li>
-        <li><a href="#performances" (click)="onNavClick('performances')">Performances</a></li>
+        <li *ngIf="musicEvents.length > 0"><a href="#life-shows" (click)="onNavClick('life-shows')">Live Shows</a></li>
+        <li *ngIf="balletEvents.length > 0"><a href="#performances" (click)="onNavClick('performances')">Performances</a></li>
       </ul>
       <div style="clear: both;"></div>
     </nav>
   </div>
 </header>
 
-<section>
-  <div class="wrapper">
-    <a name="performances">
-      <h1>Ballet Performances</h1>
-    </a>
-    <p>Consequat crucifix cronut sriracha cray snackwave, hoodie health goth paleo distillery live-edge subway tile hammock. Nisi heirloom master cleanse keffiyeh single-origin coffee cliche trust fund vexillologist plaid 90's pour-over knausgaard ennui labore. 90's coloring book adipisicing vice, deserunt snackwave artisan gentrify dolor elit blog schlitz. Austin before they sold out cupidatat aliquip crucifix. Ut sint mlkshk biodiesel deep v cronut tbh vexillologist sartorial affogato jianbing. Magna pork belly non gochujang, snackwave kinfolk yuccie enamel pin butcher. 8-bit proident church-key, waistcoat prism meh messenger bag sunt.</p>
-    <p>Ullamco snackwave veniam tousled. Drinking vinegar literally hammock et, godard hexagon bicycle rights sriracha leggings artisan. Gochujang knausgaard stumptown air plant. Shoreditch actually wolf, fashion axe listicle ex offal aesthetic brunch irony.</p>
-    <p>Hella shabby chic vaporware iceland consectetur ut quinoa fanny pack bushwick venmo fam. Commodo magna aute twee distillery street art irure in gastropub man bun glossier edison bulb kogi. Magna humblebrag dreamcatcher chicharrones, quis hashtag disrupt brooklyn flannel knausgaard. Fingerstache irony pickled, chillwave vaporware prism exercitation forage kale chips ipsum pug bespoke brunch twee.</p>
-  </div>
-  <div class="wrapper" *ngFor="let ballet of balletEvents">
-    <img [src]="ballet.pictures[0]" [alt]="ballet.title" *ngIf="ballet.pictures.length > 0" />
-    <h1>{{ ballet.title }}</h1>
-    <p>{{ ballet.shortDescription }}</p>
-    <div style="clear: both"></div>
-  </div>
+<section  *ngIf="balletEvents.length > 0">
+  <div class="event-card">
+    <a class="prev" (click)="balletLeft()" *ngIf="balletEvents.length > 1">&#10094;</a>
+    <a class="next" (click)="balletRight()" *ngIf="balletEvents.length > 1">&#10095;</a>
+    <div class="background fade" *ngFor="let ballet of balletEvents; let i = index" [ngStyle]="brightBackground(ballet)" [ngClass]="{ 'active': i == balletEventIndex }">
+      <div class="wrapper">
+        <a name="performances">
+          <h1>Ballet Performance</h1>
+        </a><br/>
+        <img [src]="ballet.pictures[0]" [alt]="ballet.title" *ngIf="ballet.pictures.length > 0" />
+        <h2>{{ ballet.title }}</h2>
+        <p>{{ ballet.shortDescription }}</p>
+        <div style="clear: both"></div>
+      </div>
+    </div>
+    <div class="dot-bar" *ngIf="balletEvents.length > 1">
+      <span class="dot" *ngFor="let ballet of balletEvents; let i = index" (click)="gotoBallet(i)" [ngClass]="{ 'active': i == balletEventIndex }"></span> 
+    </div>
+  </div>    
 </section>
 
-<section>
-  <div class="wrapper">
-    <a name="life-shows">
-      <h1>Music &amp; Life Shows</h1>
-    </a>
-    <p>Selfies hell of aesthetic craft beer palo santo portland raw denim sed asymmetrical synth cardigan. Cloud bread etsy flannel man bun culpa hella stumptown marfa incididunt listicle franzen 8-bit. Vegan bushwick shaman reprehenderit voluptate. Twee DIY mumblecore bicycle rights offal shaman humblebrag PBR&B mixtape lyft irure lorem 8-bit. Pabst gastropub snackwave, elit yr artisan keffiyeh. Listicle authentic fingerstache nulla, esse edison bulb prism shaman. Biodiesel locavore gentrify pug, DIY kickstarter do scenester incididunt ramps.</p>
-    <p>Lyft twee lomo wayfarers, portland hexagon prism blog humblebrag austin. Pinterest prism hot chicken, truffaut selvage bespoke XOXO everyday carry taxidermy. Tempor ex taiyaki twee put a bird on it fanny pack photo booth microdosing banh mi bushwick. Lorem cred salvia typewriter pitchfork aliqua. Marfa knausgaard labore meggings blog retro live-edge edison bulb pitchfork prism ipsum iPhone craft beer. Tacos schlitz ipsum food truck, et crucifix occupy culpa truffaut dolore labore flexitarian hella four loko exercitation. Craft beer synth pitchfork iceland truffaut.</p>
-  </div>
-  <div class="wrapper" *ngFor="let music of musicEvents">
-    <img [src]="music.pictures[0]" [alt]="music.title" *ngIf="music.pictures.length > 0" />
-    <h1>{{ music.title }}</h1>
-    <p>{{ music.shortDescription }}</p>
-    <div style="clear: both"></div>
+<section class="dark" *ngIf="musicEvents.length > 0">
+  <div class="event-card">
+    <a class="prev" (click)="musicLeft()" *ngIf="musicEvents.length > 1">&#10094;</a>
+    <a class="next" (click)="musicRight()" *ngIf="musicEvents.length > 1">&#10095;</a>
+    <div class="background fade" *ngFor="let music of musicEvents; let i = index" [ngStyle]="darkBackground(music)" [ngClass]="{ 'active': i == musicEventIndex }">
+      <div class="wrapper">
+        <a name="life-shows">
+          <h1>Music / Life Show</h1>
+        </a><br/>
+        <img [src]="music.pictures[0]" [alt]="music.title" *ngIf="music.pictures.length > 0" />
+        <h2>{{ music.title }}</h2>
+        <p>{{ music.shortDescription }}</p>
+        <div style="clear: both"></div>
+      </div>
+    </div>
+    <div class="dot-bar" *ngIf="musicEvents.length > 1">
+      <span class="dot" *ngFor="let music of musicEvents; let i = index" (click)="gotoMusic(i)" [ngClass]="{ 'active': i == musicEventIndex }"></span> 
+    </div>
   </div>
 </section>
   

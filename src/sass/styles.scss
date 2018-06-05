@@ -33,7 +33,7 @@ header {
         font-size: 3em;
     }
     p {
-        color: rgb(206, 196, 171);
+        color: $color-light;
         text-shadow: 1px 1px black;
         font-size: $paragraph-text-size;
     }
