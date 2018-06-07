@@ -1,0 +1,19 @@
+<div [class]="'event-card ' + (class || '')">
+  <a class="prev" (click)="eventLeft()" *ngIf="events.length > 1">&#10094;</a>
+  <a class="next" (click)="eventRight()" *ngIf="events.length > 1">&#10095;</a>
+  <div class="background fade" *ngFor="let stageEvent of events; let i = index" [ngStyle]="getBackgroundStyles(stageEvent)" [ngClass]="{ 'active': i == eventIndex }">
+    <div class="wrapper">
+      <h1>{{title}}</h1>
+      <br/>
+      <img [src]="stageEvent.pictures[0]" [alt]="stageEvent.title" *ngIf="stageEvent.pictures.length > 0" />
+      <h2>{{ stageEvent.title }}</h2>
+      <p>{{ stageEvent.shortDescription }}</p>
+      <div style="clear: both"></div>
+    </div>
+  </div>
+  <div class="dot-bar">
+    <span class="dot" *ngFor="let stageEvent of events; let i = index" (click)="gotoEvent(i)"
+      [ngClass]="{ 'active': i == eventIndex }"
+      [style.visibility]="events.length > 1 ? 'visible' : 'hidden'"></span> 
+  </div>
+</div>

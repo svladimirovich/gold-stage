@@ -15,13 +15,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './services/users.service';
 import { StageEventsService } from './services/stage-events.service';
 import { HomeEffects } from './home/home.effects';
+import { EventSliderComponent } from './home/event-slider/event-slider.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NewslistComponent
+    NewslistComponent,
+    EventSliderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'gold-stage'}),

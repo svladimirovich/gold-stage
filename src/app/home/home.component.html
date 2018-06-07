@@ -2,7 +2,9 @@
   <div class="wrapper dark-text-board">
     <h1>{{ title }}</h1>
     <p>Minim quinoa magna mustache. Thundercats voluptate listicle beard. Ramps affogato veniam seitan. Blog ullamco thundercats williamsburg. Intelligentsia truffaut vegan tumblr proident gentrify tofu meditation fanny pack. Pariatur shoreditch fashion axe blue bottle pork belly, offal snackwave aliquip incididunt vinyl bushwick next level master cleanse direct trade.</p>
+    <!--
     <p>Swag food truck try-hard vegan before they sold out celiac snackwave bespoke gentrify. Letterpress cornhole aliqua succulents pok pok authentic dolore single-origin coffee helvetica velit laborum vexillologist. Chia vegan fam normcore fixie nulla. Pug bushwick direct trade vexillologist vegan blue bottle umami. Lyft gochujang ennui et chartreuse before they sold out, shaman raclette pitchfork nisi selvage dolore godard hot chicken poke. Aliqua pok pok veniam VHS. Velit aliquip la croix gentrify yuccie.</p>
+    -->
     <nav>
       <!--
         <img alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
@@ -18,46 +20,16 @@
   </div>
 </header>
 
-<section  *ngIf="balletEvents.length > 0">
-  <div class="event-card">
-    <a class="prev" (click)="balletLeft()" *ngIf="balletEvents.length > 1">&#10094;</a>
-    <a class="next" (click)="balletRight()" *ngIf="balletEvents.length > 1">&#10095;</a>
-    <div class="background fade" *ngFor="let ballet of balletEvents; let i = index" [ngStyle]="brightBackground(ballet)" [ngClass]="{ 'active': i == balletEventIndex }">
-      <div class="wrapper">
-        <a name="performances">
-          <h1>Ballet Performance</h1>
-        </a><br/>
-        <img [src]="ballet.pictures[0]" [alt]="ballet.title" *ngIf="ballet.pictures.length > 0" />
-        <h2>{{ ballet.title }}</h2>
-        <p>{{ ballet.shortDescription }}</p>
-        <div style="clear: both"></div>
-      </div>
-    </div>
-    <div class="dot-bar" *ngIf="balletEvents.length > 1">
-      <span class="dot" *ngFor="let ballet of balletEvents; let i = index" (click)="gotoBallet(i)" [ngClass]="{ 'active': i == balletEventIndex }"></span> 
-    </div>
-  </div>    
+<section *ngIf="balletEvents.length > 0">
+  <a name="performances">
+    <app-event-slider title="Ballet Performance" [events]="balletEvents"></app-event-slider>
+  </a>
 </section>
 
-<section class="dark" *ngIf="musicEvents.length > 0">
-  <div class="event-card">
-    <a class="prev" (click)="musicLeft()" *ngIf="musicEvents.length > 1">&#10094;</a>
-    <a class="next" (click)="musicRight()" *ngIf="musicEvents.length > 1">&#10095;</a>
-    <div class="background fade" *ngFor="let music of musicEvents; let i = index" [ngStyle]="darkBackground(music)" [ngClass]="{ 'active': i == musicEventIndex }">
-      <div class="wrapper">
-        <a name="life-shows">
-          <h1>Music / Life Show</h1>
-        </a><br/>
-        <img [src]="music.pictures[0]" [alt]="music.title" *ngIf="music.pictures.length > 0" />
-        <h2>{{ music.title }}</h2>
-        <p>{{ music.shortDescription }}</p>
-        <div style="clear: both"></div>
-      </div>
-    </div>
-    <div class="dot-bar" *ngIf="musicEvents.length > 1">
-      <span class="dot" *ngFor="let music of musicEvents; let i = index" (click)="gotoMusic(i)" [ngClass]="{ 'active': i == musicEventIndex }"></span> 
-    </div>
-  </div>
+<section *ngIf="musicEvents.length > 0">
+  <a name="life-shows">
+    <app-event-slider title="Music / Life Show" [events]="musicEvents" class="dark"></app-event-slider>
+  </a>
 </section>
   
 <section>
@@ -69,24 +41,24 @@
 </section>
   
 <section>
-  <div class="wrapper">
-    <a name="contacts">
+  <a name="contacts">
+    <div class="wrapper">
       <h1>Contacts</h1>
-    </a>
-    <p>Knausgaard put a bird on it fixie, vape farm-to-table poutine taiyaki vaporware quis subway tile iPhone tbh helvetica. Mixtape freegan wolf, tacos incididunt meh consectetur iceland. Seitan DIY eiusmod, paleo drinking vinegar prism banh mi reprehenderit squid fam mlkshk vexillologist. Vaporware synth raw denim wolf, photo booth nulla duis next level artisan organic craft beer edison bulb. Velit pop-up ramps, consectetur iceland distillery pour-over ugh offal ad. Officia quis et tumblr craft beer pitchfork messenger bag tote bag brooklyn keffiyeh snackwave forage sunt nostrud truffaut.</p>
-    <p>Chartreuse non officia in slow-carb incididunt nostrud schlitz lorem kombucha messenger bag flexitarian craft beer edison bulb. Deserunt godard small batch cronut ad pok pok green juice chia snackwave. Venmo authentic ut hashtag truffaut snackwave pop-up enamel pin hoodie, food truck heirloom. Humblebrag microdosing nostrud bushwick next level consectetur slow-carb bespoke cold-pressed keytar chartreuse brunch ramps pork belly. Magna incididunt hexagon, sunt coloring book yr pop-up brooklyn mumblecore aute raclette. Mlkshk salvia sint meditation culpa, in ennui crucifix. DIY truffaut hexagon farm-to-table, hot chicken commodo echo park typewriter ramps id ipsum.</p>
-  </div>
+      <p>Knausgaard put a bird on it fixie, vape farm-to-table poutine taiyaki vaporware quis subway tile iPhone tbh helvetica. Mixtape freegan wolf, tacos incididunt meh consectetur iceland. Seitan DIY eiusmod, paleo drinking vinegar prism banh mi reprehenderit squid fam mlkshk vexillologist. Vaporware synth raw denim wolf, photo booth nulla duis next level artisan organic craft beer edison bulb. Velit pop-up ramps, consectetur iceland distillery pour-over ugh offal ad. Officia quis et tumblr craft beer pitchfork messenger bag tote bag brooklyn keffiyeh snackwave forage sunt nostrud truffaut.</p>
+      <p>Chartreuse non officia in slow-carb incididunt nostrud schlitz lorem kombucha messenger bag flexitarian craft beer edison bulb. Deserunt godard small batch cronut ad pok pok green juice chia snackwave. Venmo authentic ut hashtag truffaut snackwave pop-up enamel pin hoodie, food truck heirloom. Humblebrag microdosing nostrud bushwick next level consectetur slow-carb bespoke cold-pressed keytar chartreuse brunch ramps pork belly. Magna incididunt hexagon, sunt coloring book yr pop-up brooklyn mumblecore aute raclette. Mlkshk salvia sint meditation culpa, in ennui crucifix. DIY truffaut hexagon farm-to-table, hot chicken commodo echo park typewriter ramps id ipsum.</p>
+    </div>
+  </a>
 </section>
   
 <section>
-  <div class="wrapper">
-    <a name="about">
+  <a name="about">
+    <div class="wrapper">
       <h1>About</h1>
-    </a>
-    <p>Wolf cliche scenester, typewriter blog hella kogi fashion axe mustache twee venmo hoodie tumeric sint. Tacos portland squid, bitters four dollar toast etsy echo park eu laboris. Jianbing heirloom lorem, kitsch deserunt vegan cronut disrupt elit quinoa organic stumptown edison bulb tacos craft beer. Ex mustache veniam kale chips bespoke unicorn brunch next level laborum distillery mumblecore helvetica vegan sint. Proident vegan tofu +1 palo santo. Four loko enamel pin cornhole vexillologist tempor unicorn tumblr. Lyft trust fund knausgaard tacos polaroid microdosing single-origin coffee cronut retro poke vape.</p>
-    <p>Locavore cornhole trust fund occupy tousled non biodiesel retro XOXO food truck consectetur seitan pok pok helvetica. Gochujang raw denim succulents ad tacos non nisi biodiesel hashtag voluptate austin tote bag gastropub distillery hell of. Unicorn hoodie locavore non, gochujang godard authentic aliqua squid et normcore af ut. Irure gochujang chartreuse pabst exercitation shaman activated charcoal. Deep v aesthetic migas proident, lumbersexual plaid reprehenderit.</p>
-    <p>Prism id hoodie, ipsum hashtag dreamcatcher meggings ullamco tacos YOLO typewriter tumblr. Exercitation authentic kitsch magna nisi meh aliquip cornhole blog helvetica. Laborum thundercats palo santo proident, four dollar toast cronut jianbing. Flexitarian la croix fam whatever, air plant cillum chicharrones photo booth normcore retro.</p>
-  </div>
+      <p>Wolf cliche scenester, typewriter blog hella kogi fashion axe mustache twee venmo hoodie tumeric sint. Tacos portland squid, bitters four dollar toast etsy echo park eu laboris. Jianbing heirloom lorem, kitsch deserunt vegan cronut disrupt elit quinoa organic stumptown edison bulb tacos craft beer. Ex mustache veniam kale chips bespoke unicorn brunch next level laborum distillery mumblecore helvetica vegan sint. Proident vegan tofu +1 palo santo. Four loko enamel pin cornhole vexillologist tempor unicorn tumblr. Lyft trust fund knausgaard tacos polaroid microdosing single-origin coffee cronut retro poke vape.</p>
+      <p>Locavore cornhole trust fund occupy tousled non biodiesel retro XOXO food truck consectetur seitan pok pok helvetica. Gochujang raw denim succulents ad tacos non nisi biodiesel hashtag voluptate austin tote bag gastropub distillery hell of. Unicorn hoodie locavore non, gochujang godard authentic aliqua squid et normcore af ut. Irure gochujang chartreuse pabst exercitation shaman activated charcoal. Deep v aesthetic migas proident, lumbersexual plaid reprehenderit.</p>
+      <p>Prism id hoodie, ipsum hashtag dreamcatcher meggings ullamco tacos YOLO typewriter tumblr. Exercitation authentic kitsch magna nisi meh aliquip cornhole blog helvetica. Laborum thundercats palo santo proident, four dollar toast cronut jianbing. Flexitarian la croix fam whatever, air plant cillum chicharrones photo booth normcore retro.</p>
+    </div>
+  </a>
 </section>
 
 <!--

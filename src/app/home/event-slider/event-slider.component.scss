@@ -1,0 +1,134 @@
+@import '~sass/variables';
+@import '~sass/mixins';
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+
+    &.active {
+        background: $color-gold;
+    }
+}
+
+.event-card {
+    position: relative;
+    
+
+    div.wrapper {
+        height: 40em;
+        overflow: hidden;    
+    }
+
+    p {
+        font-size: $home-paragraph-text-size;
+        color: $color-gold-shadow;
+    }
+    
+    &.dark p {
+        color: $color-light;
+    }
+    
+    h1 {
+        margin-top: 1.7em;
+        font-size: $home-section-header-size;
+        color: $color-gold-shadow;
+    }
+    
+    h2 {
+        color: $color-gold-shadow;
+        font-size: $home-event-title-size;
+    }
+    
+    &.dark h2 {
+        color: $color-light;
+    }
+    
+    &.dark h1 {
+        color: $color-gold;
+    }        
+    
+    img {
+        margin: 0 10px 6px 10px;
+        float: right;
+        max-height: 300px;
+        max-width: 300px;
+        box-shadow: 5px 5px 5px $color-gold-shadow;
+    }
+    
+    &.dark img {
+        box-shadow: 5px 5px 5px black;
+    }
+        
+    .background {
+        width: 100%;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    .dot-bar {
+        padding: 2em 0 1em 0;
+        text-align: center;
+        cursor: default;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(rgba(0,0,0,0), rgba(221, 190, 96, 1));
+    }
+
+    &.dark .dot-bar {
+        background: linear-gradient(rgba(0,0,0,0), #000);
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -1.4em;
+        padding: .2em;
+        color: $color-gold-dirty;
+        font-size: 2em;
+        transition: 0.4s ease;
+        border-radius: 0 .2em .2em 0;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: .2em 0 0 .2em;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+        color: rgb(253, 230, 100);
+        background-color: rgba(78,68,11,0.6);
+    }  
+}    
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: .5s;
+    animation-name: fade;
+    animation-duration: .5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .7} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .7} 
+    to {opacity: 1}
+  }
