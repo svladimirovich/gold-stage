@@ -9,7 +9,7 @@ import { StageEventsService } from '../services/stage-events.service';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'login'
+        redirectTo: 'events'
     }, {
         path: 'login',
         component: LoginComponent  

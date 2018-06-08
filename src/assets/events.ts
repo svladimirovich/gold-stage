@@ -1,5 +1,19 @@
 export const eventsList = [
   {
+    id: "7ffeb710-98cc-eaf2-2f6c-bddbecea3491",
+    title: "Beardyman",
+    date: "2018-10-21",
+    shortDescription: "Master cleanse try-hard woke next level franzen meditation cliche prism biodiesel distillery letterpress twee whatever fam pabst. Seitan knausgaard pabst sartorial, normcore polaroid ennui salvia swag iceland. Tacos snackwave hexagon af, normcore irony brooklyn vinyl yr letterpress. Cray wolf cred trust fund, health goth listicle occupy direct trade typewriter.",
+    fullDescription: "",
+    location: "http://www.beardyman.co.uk",
+    bannerBackground: "https://s3-us-west-2.amazonaws.com/cc-guide-gifs/guide_gifs/hexagon+wave+-+dave+whyte.gif",
+    pictures : ["https://goo.gl/GV82Tb"],
+    minTicketPrice: 50,
+    maxTicketPrice: 100,
+    soldOut: false,
+    eventType: "music",    
+  },  
+  {
     id: "fa557d0d-7185-28d1-9088-6341f2ce00a5",
     title: "Zemfira",
     date: new Date("2018-06-10"),
@@ -68,20 +82,5 @@ export const eventsList = [
     maxTicketPrice: 150,
     soldOut: true,
     eventType: "music",
-  },
-  {
-    id: "7ffeb710-98cc-eaf2-2f6c-bddbecea3491",
-    title: "Beardyman",
-    date: "2018-10-21",
-    shortDescription: "Master cleanse try-hard woke next level franzen meditation cliche prism biodiesel distillery letterpress twee whatever fam pabst. Seitan knausgaard pabst sartorial, normcore polaroid ennui salvia swag iceland. Tacos snackwave hexagon af, normcore irony brooklyn vinyl yr letterpress. Cray wolf cred trust fund, health goth listicle occupy direct trade typewriter.",
-    fullDescription: "",
-    location: "http://www.beardyman.co.uk",
-    bannerBackground: "https://goo.gl/mwk8tW",
-    pictures : ["https://goo.gl/GV82Tb"],
-    minTicketPrice: 50,
-    maxTicketPrice: 100,
-    soldOut: false,
-    eventType: "music",    
-  }
-  
+  }  
 ];

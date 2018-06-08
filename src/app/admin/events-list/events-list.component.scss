@@ -25,4 +25,16 @@ section {
 
 }
 
+section.powered-by {
+    box-shadow: unset;
+
+    text-align: right;
+
+    img {
+        float: unset;
+        height: 3em;
+        box-shadow: unset;
+    }
+}
+
 
