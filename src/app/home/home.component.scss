@@ -33,3 +33,21 @@ section {
 }
 
 
+ul.contact-bar {
+    margin-top: 4vw;
+    list-style-type: none;
+    text-align: right;
+
+    li {
+        padding: 0 1vw 0 1vw;
+        display: inline-block;
+    }
+    a {
+        height: 3.2rem;
+        width: 3.2rem;
+    }
+    a, svg {
+        display: block;
+    }
+}
+
