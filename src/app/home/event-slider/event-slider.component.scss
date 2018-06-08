@@ -74,6 +74,20 @@
         }
     }
 
+    span.event-date {
+        font-size: 3em;
+        text-align: right;
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        width: 100%;
+        color: $color-gold-shadow;
+    }
+
+    &.dark span.event-date {
+        color: $color-gold;
+    }
+
     .dot-bar {
         padding: 2em 0 1em 0;
         text-align: center;
@@ -121,14 +135,14 @@
     -webkit-animation-duration: .5s;
     animation-name: fade;
     animation-duration: .5s;
-  }
+}
   
-  @-webkit-keyframes fade {
-    from {opacity: .7} 
-    to {opacity: 1}
-  }
+//   @-webkit-keyframes fade {
+//     from {opacity: .9} 
+//     to {opacity: 1}
+//   }
   
-  @keyframes fade {
-    from {opacity: .7} 
-    to {opacity: 1}
-  }
+//   @keyframes fade {
+//     from {opacity: .9} 
+//     to {opacity: 1}
+//   }

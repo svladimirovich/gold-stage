@@ -68,6 +68,20 @@ export const eventsList = [
     maxTicketPrice: 150,
     soldOut: true,
     eventType: "music",
+  },
+  {
+    id: "7ffeb710-98cc-eaf2-2f6c-bddbecea3491",
+    title: "Beardyman",
+    date: "2018-10-21",
+    shortDescription: "Master cleanse try-hard woke next level franzen meditation cliche prism biodiesel distillery letterpress twee whatever fam pabst. Seitan knausgaard pabst sartorial, normcore polaroid ennui salvia swag iceland. Tacos snackwave hexagon af, normcore irony brooklyn vinyl yr letterpress. Cray wolf cred trust fund, health goth listicle occupy direct trade typewriter.",
+    fullDescription: "",
+    location: "http://www.beardyman.co.uk",
+    bannerBackground: "https://goo.gl/mwk8tW",
+    pictures : ["https://goo.gl/GV82Tb"],
+    minTicketPrice: 50,
+    maxTicketPrice: 100,
+    soldOut: false,
+    eventType: "music",    
   }
   
 ];

@@ -5,9 +5,10 @@
     <div class="wrapper">
       <h1>{{title}}</h1>
       <br/>
-      <img [src]="stageEvent.pictures[0]" [alt]="stageEvent.title" *ngIf="stageEvent.pictures.length > 0" />
+      <img [src]="currentPictureUrl" (click)="nextPicture()"  [alt]="stageEvent.title" *ngIf="currentPictureUrl" />
       <h2>{{ stageEvent.title }}</h2>
       <p>{{ stageEvent.shortDescription }}</p>
+      <span class="event-date">{{ eventDate }}</span>
       <div style="clear: both"></div>
     </div>
   </div>
