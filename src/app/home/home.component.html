@@ -10,62 +10,20 @@
         <img alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
       -->
       <ul>
-        <li><a href="#about" (click)="onNavClick('about')">About</a></li>
         <li><a href="#contacts" (click)="onNavClick('contacts')">Contacts</a></li>
         <li *ngIf="musicEvents.length > 0"><a href="#life-shows" (click)="onNavClick('life-shows')">Live Shows</a></li>
         <li *ngIf="balletEvents.length > 0"><a href="#performances" (click)="onNavClick('performances')">Performances</a></li>
+        <li><a href="#presentation" (click)="onNavClick('presentation')">Presentation</a></li>
       </ul>
       <div style="clear: both;"></div>
     </nav>
   </div>
 </header>
 
-<section *ngIf="balletEvents.length > 0">
-  <a name="performances">
-    <app-event-slider title="Ballet Performance" [events]="balletEvents"></app-event-slider>
-  </a>
-</section>
-
-<section *ngIf="musicEvents.length > 0">
-  <a name="life-shows">
-    <app-event-slider title="Music / Life Show" [events]="musicEvents" class="dark"></app-event-slider>
-  </a>
-</section>
-  
 <section>
-  <div class="wrapper">
-    <h1>View all events</h1>
-    <p>Four dollar toast sed retro chillwave non craft beer prism. Hashtag 90's vexillologist semiotics, raclette helvetica gentrify ethical green juice 3 wolf moon chillwave pop-up. 90's tumeric unicorn lumbersexual crucifix pitchfork. Squid keytar dolor veniam 3 wolf moon laborum iPhone fam echo park. Laborum kinfolk before they sold out quis edison bulb ea chia sunt cillum umami minim. Voluptate cray taiyaki proident franzen godard flexitarian mlkshk in, squid sriracha chillwave kitsch poutine lyft. Laborum shoreditch PBR&B ullamco prism vaporware eu hashtag venmo sriracha excepteur blog quis food truck tumeric.</p>
-    <p>Squid tofu tousled, actually intelligentsia irony shaman. Flexitarian shaman woke fam. Photo booth palo santo four loko, chia kinfolk food truck hella. Mumblecore meh palo santo farm-to-table. Leggings fam four loko sed street art nostrud.</p>
-  </div>
-</section>
-  
-<section>
-  <a name="contacts">
+  <a name="presentation">
     <div class="wrapper">
-      <h1>Contacts</h1>
-      <p>Knausgaard put a bird on it fixie, vape farm-to-table poutine taiyaki vaporware quis subway tile iPhone tbh helvetica. Mixtape freegan wolf, tacos incididunt meh consectetur iceland. Seitan DIY eiusmod, paleo drinking vinegar prism banh mi reprehenderit squid fam mlkshk vexillologist. Vaporware synth raw denim wolf, photo booth nulla duis next level artisan organic craft beer edison bulb. Velit pop-up ramps, consectetur iceland distillery pour-over ugh offal ad. Officia quis et tumblr craft beer pitchfork messenger bag tote bag brooklyn keffiyeh snackwave forage sunt nostrud truffaut.</p>
-      <p>Chartreuse non officia in slow-carb incididunt nostrud schlitz lorem kombucha messenger bag flexitarian craft beer edison bulb. Deserunt godard small batch cronut ad pok pok green juice chia snackwave. Venmo authentic ut hashtag truffaut snackwave pop-up enamel pin hoodie, food truck heirloom. Humblebrag microdosing nostrud bushwick next level consectetur slow-carb bespoke cold-pressed keytar chartreuse brunch ramps pork belly. Magna incididunt hexagon, sunt coloring book yr pop-up brooklyn mumblecore aute raclette. Mlkshk salvia sint meditation culpa, in ennui crucifix. DIY truffaut hexagon farm-to-table, hot chicken commodo echo park typewriter ramps id ipsum.</p>
-      <ul class="contact-bar">
-        <li>
-          <a href="tel:+33658710243" title="Phone">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1536 1536"><path d="M1280 1065q0-11-2-16t-18-16.5-40.5-25T1172 981t-45.5-25-28.5-15q-5-3-19-13t-25-15-21-5q-15 0-36.5 20.5t-39.5 45-38.5 45T885 1039q-7 0-16.5-3.5T853 1029t-17-9.5-14-8.5q-99-55-170-126.5T525 714q-2-3-8.5-14t-9.5-17-6.5-15.5T497 651q0-13 20.5-33.5t45-38.5 45-39.5T628 503q0-10-5-21t-15-25-13-19q-3-6-15-28.5T555 364t-26.5-47.5-25-40.5-16.5-18-16-2q-48 0-101 22-46 21-80 94.5T256 503q0 16 2.5 34t5 30.5 9 33 10 29.5 12.5 33 11 30q60 164 216.5 320.5T843 1230q6 2 30 11t33 12.5 29.5 10 33 9 30.5 5 34 2.5q57 0 130.5-34t94.5-80q22-53 22-101zm256-777v960q0 119-84.5 203.5T1248 1536H288q-119 0-203.5-84.5T0 1248V288Q0 169 84.5 84.5T288 0h960q119 0 203.5 84.5T1536 288z" fill="black"/></svg>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:contact@goldstage.com" title="Email">
-            <svg viewBox="0 0 512 512"><path d="M101.3 141.6v228.9h0.3 308.4 0.8V141.6H101.3zM375.7 167.8l-119.7 91.5 -119.6-91.5H375.7zM127.6 194.1l64.1 49.1 -64.1 64.1V194.1zM127.8 344.2l84.9-84.9 43.2 33.1 43-32.9 84.7 84.7L127.8 344.2 127.8 344.2zM384.4 307.8l-64.4-64.4 64.4-49.3V307.8z"/></svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </a>
-</section>
-  
-<section>
-  <a name="about">
-    <div class="wrapper">
-      <h1>About</h1>
+      <h1>Presentation</h1>
       <p>Wolf cliche scenester, typewriter blog hella kogi fashion axe mustache twee venmo hoodie tumeric sint. Tacos portland squid, bitters four dollar toast etsy echo park eu laboris. Jianbing heirloom lorem, kitsch deserunt vegan cronut disrupt elit quinoa organic stumptown edison bulb tacos craft beer. Ex mustache veniam kale chips bespoke unicorn brunch next level laborum distillery mumblecore helvetica vegan sint. Proident vegan tofu +1 palo santo. Four loko enamel pin cornhole vexillologist tempor unicorn tumblr. Lyft trust fund knausgaard tacos polaroid microdosing single-origin coffee cronut retro poke vape.</p>
       <p>Locavore cornhole trust fund occupy tousled non biodiesel retro XOXO food truck consectetur seitan pok pok helvetica. Gochujang raw denim succulents ad tacos non nisi biodiesel hashtag voluptate austin tote bag gastropub distillery hell of. Unicorn hoodie locavore non, gochujang godard authentic aliqua squid et normcore af ut. Irure gochujang chartreuse pabst exercitation shaman activated charcoal. Deep v aesthetic migas proident, lumbersexual plaid reprehenderit.</p>
       <p>Prism id hoodie, ipsum hashtag dreamcatcher meggings ullamco tacos YOLO typewriter tumblr. Exercitation authentic kitsch magna nisi meh aliquip cornhole blog helvetica. Laborum thundercats palo santo proident, four dollar toast cronut jianbing. Flexitarian la croix fam whatever, air plant cillum chicharrones photo booth normcore retro.</p>
@@ -95,6 +53,40 @@
   </a>
 </section>
 
+<section *ngIf="balletEvents.length > 0">
+  <a name="performances">
+    <app-event-slider title="Ballet Performance" [events]="balletEvents"></app-event-slider>
+  </a>
+</section>
+
+<section *ngIf="musicEvents.length > 0">
+  <a name="life-shows">
+    <app-event-slider title="Music / Life Show" [events]="musicEvents" class="dark"></app-event-slider>
+  </a>
+</section>
+ 
+<section>
+  <a name="contacts">
+    <div class="wrapper">
+      <h1>Contacts</h1>
+      <p>Knausgaard put a bird on it fixie, vape farm-to-table poutine taiyaki vaporware quis subway tile iPhone tbh helvetica. Mixtape freegan wolf, tacos incididunt meh consectetur iceland. Seitan DIY eiusmod, paleo drinking vinegar prism banh mi reprehenderit squid fam mlkshk vexillologist. Vaporware synth raw denim wolf, photo booth nulla duis next level artisan organic craft beer edison bulb. Velit pop-up ramps, consectetur iceland distillery pour-over ugh offal ad. Officia quis et tumblr craft beer pitchfork messenger bag tote bag brooklyn keffiyeh snackwave forage sunt nostrud truffaut.</p>
+      <p>Chartreuse non officia in slow-carb incididunt nostrud schlitz lorem kombucha messenger bag flexitarian craft beer edison bulb. Deserunt godard small batch cronut ad pok pok green juice chia snackwave. Venmo authentic ut hashtag truffaut snackwave pop-up enamel pin hoodie, food truck heirloom. Humblebrag microdosing nostrud bushwick next level consectetur slow-carb bespoke cold-pressed keytar chartreuse brunch ramps pork belly. Magna incididunt hexagon, sunt coloring book yr pop-up brooklyn mumblecore aute raclette. Mlkshk salvia sint meditation culpa, in ennui crucifix. DIY truffaut hexagon farm-to-table, hot chicken commodo echo park typewriter ramps id ipsum.</p>
+      <ul class="contact-bar">
+        <li>
+          <a href="tel:+33658710243" title="Phone">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1536 1536"><path d="M1280 1065q0-11-2-16t-18-16.5-40.5-25T1172 981t-45.5-25-28.5-15q-5-3-19-13t-25-15-21-5q-15 0-36.5 20.5t-39.5 45-38.5 45T885 1039q-7 0-16.5-3.5T853 1029t-17-9.5-14-8.5q-99-55-170-126.5T525 714q-2-3-8.5-14t-9.5-17-6.5-15.5T497 651q0-13 20.5-33.5t45-38.5 45-39.5T628 503q0-10-5-21t-15-25-13-19q-3-6-15-28.5T555 364t-26.5-47.5-25-40.5-16.5-18-16-2q-48 0-101 22-46 21-80 94.5T256 503q0 16 2.5 34t5 30.5 9 33 10 29.5 12.5 33 11 30q60 164 216.5 320.5T843 1230q6 2 30 11t33 12.5 29.5 10 33 9 30.5 5 34 2.5q57 0 130.5-34t94.5-80q22-53 22-101zm256-777v960q0 119-84.5 203.5T1248 1536H288q-119 0-203.5-84.5T0 1248V288Q0 169 84.5 84.5T288 0h960q119 0 203.5 84.5T1536 288z" fill="black"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:contact@goldstage.com" title="Email">
+            <svg viewBox="0 0 512 512"><path d="M101.3 141.6v228.9h0.3 308.4 0.8V141.6H101.3zM375.7 167.8l-119.7 91.5 -119.6-91.5H375.7zM127.6 194.1l64.1 49.1 -64.1 64.1V194.1zM127.8 344.2l84.9-84.9 43.2 33.1 43-32.9 84.7 84.7L127.8 344.2 127.8 344.2zM384.4 307.8l-64.4-64.4 64.4-49.3V307.8z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </a>
+</section>
+  
 <!--
 <app-newslist></app-newslist>
 -->
