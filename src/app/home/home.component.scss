@@ -4,6 +4,7 @@
 header {
     h1 {
         font-size: $home-logo-text-size;
+        font-family: $font-cinzel;
     }
 
     p {
@@ -20,10 +21,12 @@ section {
     h1 {
         color: $color-gold-shadow;
         font-size: $home-section-header-size;
+        font-family: $font-cinzel;
     }
 
     h2 {
         font-size: $home-event-title-size;
+        font-family: $font-cinzel;
     }
 
     p {

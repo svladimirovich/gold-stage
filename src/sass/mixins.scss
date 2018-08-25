@@ -1,6 +1,6 @@
 %btn-goldstage {
     font-size: 1.2em;
-    font-family: $font-alice;
+    font-family: $font-abel;
     color: $color-gold-shadow;
     min-width: 8em;
     padding: .2em 1em .2em 1em;
@@ -42,7 +42,7 @@
             margin-top: .2em;
             padding: .2em;
             font-size: $paragraph-text-size;
-            font-family: $font-alice;
+            font-family: $font-inputs;
 
             // material date picker creates this property
             // we want date picker input to be this wide
@@ -54,7 +54,7 @@
             margin-top: .2em;
             padding: .2em;
             font-size: $paragraph-text-size;
-            font-family: $font-alice;
+            font-family: $font-inputs;
         }
         textarea {
             margin-top: .2em;

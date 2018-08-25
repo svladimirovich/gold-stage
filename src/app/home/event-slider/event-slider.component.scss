@@ -38,11 +38,13 @@
         margin-top: 1.7em;
         font-size: $home-section-header-size;
         color: $color-gold-shadow;
+        font-family: $font-cinzel;
     }
     
     h2 {
         color: $color-gold-shadow;
         font-size: $home-event-title-size;
+        font-family: $font-cinzel;
     }
     
     &.dark h2 {
@@ -82,6 +84,7 @@
         right: 1em;
         width: 100%;
         color: $color-gold-shadow;
+        font-family: $font-playfair-cs;
     }
 
     &.dark span.event-date {

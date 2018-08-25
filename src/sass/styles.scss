@@ -2,7 +2,7 @@
 @import 'variables';
 @import 'mixins';
 
-@import url('https://fonts.googleapis.com/css?family=Alice');
+@import url('https://fonts.googleapis.com/css?family=Abel|Cinzel|Cormorant+Garamond|Old+Standard+TT|Playfair+Display|Playfair+Display+SC');
 // TODO: Couldn't figure a way to lazy load this specifically for the admin module
 @import "../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
@@ -12,7 +12,7 @@ html, body {
 
 body {
     margin: 0;
-    font-family: $font-alice;
+    font-family: $font-cormorant;
     background: linear-gradient(rgba(255, 245, 238, 0.8), rgba(255, 245, 238, 0.99)), url('../../src/assets/images/ballerina01.svg');
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -31,6 +31,7 @@ header {
         color: goldenrod;
         text-shadow: 2px 2px $color-gold-shadow;
         font-size: 3em;
+        font-family: $font-cinzel;
     }
     p {
         color: $color-light;
