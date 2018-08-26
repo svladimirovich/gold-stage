@@ -35,6 +35,12 @@ section {
     }
 }
 
+.logo {
+    background: linear-gradient(rgba(255, 245, 238, 0.2), rgba(255, 245, 238, 0.2)), url('http://test-domain.goldstage.info/static/images/logo_sample.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+}
 
 ul.contact-bar {
     margin-top: 4vw;

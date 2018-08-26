@@ -1,6 +1,37 @@
 export const eventsList = [
   {
     id: "7ffeb710-98cc-eaf2-2f6c-bddbecea3491",
+    title: "",
+    date: null,
+    shortDescription: "Goldstage s’inscrit dans une continuité temporelle et produit tout spectacle musicale et one man show. La diversification du contenu à produire est une évidence chez Goldstage. Pour en savoir plus, contactez nous ici.",
+    fullDescription: "",
+    location: "http://test-domain.goldstage.info",
+    bannerBackground: "http://test-domain.goldstage.info/static/images/concert_sample.png",
+    pictures : [],
+    minTicketPrice: 50,
+    maxTicketPrice: 100,
+    soldOut: false,
+    eventType: "music",    
+  },  
+  {
+    id: "e69dcef0-b9b8-2f88-be79-028a75c5d8f1",
+    title: "« Dance is the hidden language of the soul » — <small><i>Martha Graham</i></small>",
+    date: null,
+    shortDescription: "Pour Goldstage produire des ballets est une vocation. Propre à notre histoire nous produisons tout types de ballets en passant par Le Lac des signes, Casse-Noisette à Cendrillon. En étant novateur nous proposons également des ballets et des cirques sur glaces. Pour plus d’informations, contactez nous <a href='#contacts'>ici</a>.",
+    fullDescription: "",
+    location: "",
+    bannerBackground: "http://www.danseenseine.org/wp-content/uploads/2012/12/Fille-broadcast-eng.jpg",
+    pictures: [
+      "http://test-domain.goldstage.info/static/images/ballet_sample.png"
+    ],
+    minTicketPrice: 200,
+    maxTicketPrice: 600,
+    soldOut: false,
+    eventType: "ballet"
+  },
+  /*
+  {
+    id: "7ffeb710-98cc-eaf2-2f6c-bddbecea3491",
     title: "Beardyman",
     date: "2018-10-21",
     shortDescription: "Master cleanse try-hard woke next level franzen meditation cliche prism biodiesel distillery letterpress twee whatever fam pabst. Seitan knausgaard pabst sartorial, normcore polaroid ennui salvia swag iceland. Tacos snackwave hexagon af, normcore irony brooklyn vinyl yr letterpress. Cray wolf cred trust fund, health goth listicle occupy direct trade typewriter.",
@@ -82,5 +113,6 @@ export const eventsList = [
     maxTicketPrice: 150,
     soldOut: true,
     eventType: "music",
-  }  
+  }
+  */
 ];

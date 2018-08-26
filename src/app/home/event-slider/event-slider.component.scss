@@ -46,8 +46,14 @@
         font-size: $home-event-title-size;
         font-family: $font-cinzel;
     }
+
+    h3 {
+        color: $color-gold-shadow;
+        font-size: $home-event-title-h3;
+        font-family: $font-cinzel;
+    }
     
-    &.dark h2 {
+    &.dark h2, &.dark h3 {
         color: $color-light;
     }
     

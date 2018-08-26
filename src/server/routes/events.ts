@@ -45,7 +45,6 @@ router.patch('/:id', (request, response) => {
 
 // delete
 router.delete('/:id', (request, response) => {
-    let updatedEvent = request.body as StageEvent;
     const index = eventsList.findIndex(event => event.id == request.params.id);
     if(index > -1) {
         eventsList.splice(index, 1);        

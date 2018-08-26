@@ -6,8 +6,8 @@
       <h1>{{title}}</h1>
       <br/>
       <img [src]="currentPictureUrl" (click)="nextPicture()"  [alt]="stageEvent.title" *ngIf="currentPictureUrl" />
-      <h2>{{ stageEvent.title }}</h2>
-      <p>{{ stageEvent.shortDescription }}</p>
+      <h3 [innerHtml]="stageEvent.title"></h3>
+      <p [innerHtml]="stageEvent.shortDescription"></p>
       <span class="event-date">{{ eventDate }}</span>
       <div style="clear: both"></div>
     </div>

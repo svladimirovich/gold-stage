@@ -27,10 +27,12 @@ export class EventSliderComponent implements OnInit {
     public get eventDate(): string {
         if(this.events && this.events.length > 0) {
             if(this.events[this.eventIndex]) {
-                return moment(this.events[this.eventIndex].date).format("dddd, MMMM Do YYYY");
+                const momentDate = moment(this.events[this.eventIndex].date);
+                if(momentDate.isValid())
+                    return momentDate.format("dddd, MMMM Do YYYY");
             }
         }
-        return 'Event date not set';
+        return '';
     }
 
     public get currentPictureUrl(): string {
