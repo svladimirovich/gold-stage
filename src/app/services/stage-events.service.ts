@@ -33,7 +33,7 @@ export class StageEventsService implements Resolve<StageEventsServiceGetReponse>
             this.transferState.remove(transferKey);
             return Observable.of(result);
         } else {        
-            return this.http.get(`${this.configuration.BaseUrl}/api/events`)
+            return this.http.get(`${this.configuration.BaseUrl}/api/events/all.json`)
                 .map((response: any) => {
                     return {
                         events: response

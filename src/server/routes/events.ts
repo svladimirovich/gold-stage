@@ -10,7 +10,7 @@ import { ErrorResponse, OkResponse } from '../helpers/responses';
 router.use(express.json());
 
 // select all
-router.get('/', (request, response) => {
+router.get('/all.json', (request, response) => {
     response.status(200).json(eventsList);
 });
 
