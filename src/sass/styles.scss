@@ -23,36 +23,42 @@ h1 {
 }
 
 header {
-    padding-top: .6em;
-    padding-bottom: .6em;
-    background: linear-gradient(rgba(255, 245, 238, 0.2), rgba(255, 245, 238, 0.2)), url('../../src/assets/images/stage.png');
-    background-size: cover;
+    background: rgba(26, 22, 16, 0.8);
+
     h1 {
         color: goldenrod;
         text-shadow: 2px 2px $color-gold-shadow;
         font-size: 3em;
         font-family: $font-cinzel;
+        margin-bottom: 0;
     }
     p {
         color: $color-light;
         text-shadow: 1px 1px black;
         font-size: $paragraph-text-size;
     }
+
     nav {
+        display: table;
+        margin: 0 auto;
         ul {
-            list-style-type: none;
+            padding-left: 0;
+            padding-right: 0;
+            margin-top: .3em;
+            margin-bottom: .3em;
             > li {
+
                 @extend %btn-goldstage;
-                margin: .2em;
-                float: right;
+                a {
+                    display: initial;
+                }
+
+                display: inline;
+                white-space: nowrap;
+                line-height: 1.8em;
             }
         }
     }
-}
-
-.dark-text-board {
-    //padding: 2em;
-    background: rgba(26, 22, 16, 0.8);
 }
 
 .wrapper {
