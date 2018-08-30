@@ -66,3 +66,60 @@ header {
     width: 90%;
     max-width: 960px;
 }
+
+/* mobile device menu styles */
+@media screen and (max-width: 42.4375em) {
+    header {
+        .mobile-menu-icon {
+            text-align: right;
+            height: 2.875em;
+            &:after {
+                content: '☰';
+                font-size: xx-large;
+                color: goldenrod;
+                cursor: pointer;
+            }
+
+            &.open {
+                &:after {
+                    content: '❌';
+                }
+                & + nav {
+                    max-height: 15em; // picked any height as long as transition works
+                }
+            }
+        }
+        nav {
+            max-height: 0;
+            overflow: hidden;
+            display: block;
+            transition: all ease-in-out .35s;
+            -webkit-transition: all ease-in-out .35s;
+            -moz-transition: all ease-in-out .35s;
+            -o-transition: all ease-in-out .35s;
+            ul {
+                margin-right: -.5em;
+                li {
+                    float: right;
+                    width: 100%;
+                    padding: .2em;
+                    margin: 2px;
+                    text-align: center;
+                    a {
+                        display: block;
+                    }
+                }
+                &:after {
+                    content: "";
+                    clear: both;
+                    display: table;
+                }
+            }
+        }
+    }
+    .event-card {
+        img {
+            max-width: 30% !important;
+        }
+    }
+}

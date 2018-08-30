@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
     public balletEvents: Array<StageEvent> = [];
     public balletEventIndex: number = 0;
 
+    public menuOpen: boolean = false;
+
     constructor(private store: Store<AppState>) { }
 
     ngOnInit() {
@@ -78,5 +80,9 @@ export class HomeComponent implements OnInit {
             'background-size': "cover",
             'background-position': 'center',
         }
+    }
+
+    toggleMenu() {
+        this.menuOpen = !this.menuOpen;
     }
 }
