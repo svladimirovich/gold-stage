@@ -69,6 +69,13 @@ header {
 
 /* mobile device menu styles */
 @media screen and (max-width: 42.4375em) {
+    section:not(.event-card) {
+        & DIV.wrapper {
+            padding-top: 1.7em !important;
+            padding-bottom: 0 !important;
+        }
+    }
+
     header {
         .mobile-menu-icon {
             text-align: right;
@@ -118,8 +125,21 @@ header {
         }
     }
     .event-card {
+        &DIV.wrapper {
+            height: initial !important;
+        }
+        h1 {
+            margin-top: .0em !important;
+            margin-bottom: 0 !important;
+        }
+        h3 {
+            font-size: 1.3em !important;
+        }
         img {
             max-width: 30% !important;
+        }
+        .dot-bar {
+            display: none;
         }
     }
 }

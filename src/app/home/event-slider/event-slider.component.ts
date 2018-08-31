@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import * as moment from 'moment';
 
 import { StageEvent } from '../../../models/events';
@@ -8,7 +8,8 @@ import { StageEvent } from '../../../models/events';
 @Component({
     selector: 'app-event-slider',
     templateUrl: './event-slider.component.html',
-    styleUrls: ['./event-slider.component.scss']
+    styleUrls: ['./event-slider.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class EventSliderComponent implements OnInit {
 
@@ -50,7 +51,7 @@ export class EventSliderComponent implements OnInit {
 
     ngOnInit() {
     }
-  
+
     eventLeft() {
         if(--this.eventIndex == -1)
             this.eventIndex = this.events.length - 1;

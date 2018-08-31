@@ -18,7 +18,7 @@
 
 .event-card {
     position: relative;
-    
+
 
     div.wrapper {
         height: 40em;
@@ -26,12 +26,18 @@
     }
 
     p {
+        a, a:active, a:visited, a:link, a:hover {
+            color: $color-gold-shadow;
+        }
         font-size: $home-paragraph-text-size;
         color: $color-gold-shadow;
     }
-    
+   
     &.dark p {
         color: $color-light;
+        a, a:active, a:visited, a:link, a:hover {
+            color: $color-background;
+        }
     }
     
     h1 {
@@ -139,7 +145,7 @@
     .prev:hover, .next:hover {
         color: rgb(253, 230, 100);
         background-color: rgba(78,68,11,0.6);
-    }  
+    }
 }    
 
 /* Fading animation */

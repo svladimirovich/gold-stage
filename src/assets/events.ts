@@ -3,7 +3,7 @@ export const eventsList = [
     id: "7ffeb710-98cc-eaf2-2f6c-bddbecea3491",
     title: "",
     date: null,
-    shortDescription: "Goldstage s’inscrit dans une continuité temporelle et produit tout spectacle musicale et one man show. La diversification du contenu à produire est une évidence chez Goldstage. Pour en savoir plus, contactez nous ici.",
+    shortDescription: "Goldstage s’inscrit dans une continuité temporelle et produit tout spectacle musicale et one man show. La diversification du contenu à produire est une évidence chez Goldstage. Pour en savoir plus, contactez nous <a href='#contacts'>ici</a>.",
     fullDescription: "",
     location: "http://test-domain.goldstage.info",
     bannerBackground: "http://test-domain.goldstage.info/static/images/concert_sample.png",
