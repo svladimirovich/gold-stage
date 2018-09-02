@@ -17,7 +17,7 @@ export const eventsList = [
     id: "e69dcef0-b9b8-2f88-be79-028a75c5d8f1",
     title: "« Dance is the hidden language of the soul » — <small><i>Martha Graham</i></small>",
     date: null,
-    shortDescription: "Pour Goldstage produire des ballets est une vocation. Propre à notre histoire nous produisons tout types de ballets en passant par Le Lac des signes, Casse-Noisette à Cendrillon. En étant novateur nous proposons également des ballets et des cirques sur glaces. Pour plus d’informations, contactez nous <a href='#contacts'>ici</a>.",
+    shortDescription: "Pour Goldstage produire des ballets est une vocation. Propre à notre histoire nous produisons tous types de ballets en passant par Le Lac des signes, Casse-Noisette à Cendrillon. En étant novateur nous proposons également des ballets et des cirques sur glaces. Pour plus d’informations, contactez nous <a href='#contacts'>ici</a>.",
     fullDescription: "",
     location: "",
     bannerBackground: "http://www.danseenseine.org/wp-content/uploads/2012/12/Fille-broadcast-eng.jpg",
