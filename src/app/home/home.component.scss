@@ -35,11 +35,20 @@ section {
     }
 }
 
-.logo {
-    background: linear-gradient(rgba(255, 245, 238, 0.2), rgba(255, 245, 238, 0.2)), url('http://test-domain.goldstage.info/static/images/logo_sample.png');
+.logo_background {
+    background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .5)), url('https://storage.googleapis.com/test-domain.goldstage.info/assets/videos/gold-stage-optimized.gif');
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     height: 500px;
+    .logo {
+        background: url('https://storage.googleapis.com/test-domain.goldstage.info/static/images/logo_sample.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        opacity: 0.5;
+    }
 }
 
 ul.contact-bar {
