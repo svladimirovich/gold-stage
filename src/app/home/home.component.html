@@ -3,9 +3,7 @@
     <!--<h1>{{ title }}</h1>-->
     <div class="mobile-menu-icon" [ngClass]="{ open: menuOpen }" (click)="toggleMenu()" ></div>
     <nav>
-      <!--
-        <img alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-      -->
+      <img alt="GoldStage logo" src="http://www.goldstage.fr/static/images/logo_simple.png">
       <ul>
         <li><a href="#contacts" (click)="onNavClick('contacts')">Contact</a></li>
         <li *ngIf="musicEvents.length > 0"><a href="#life-shows" (click)="onNavClick('life-shows')">Live Shows</a></li>
@@ -17,6 +15,11 @@
 </header>
 
 <section class="logo_background">
+  <video preload="auto" autoplay loop muted> <!-- poster="posterImage.jpg" -->
+    <!--<source src="video/t12.webm" type="video/webm"></source>-->
+    <source src="http://www.goldstage.fr/static/videos/goldstage.mp4" type="video/mp4" />
+  </video> 
+
   <div class="logo"></div>
 </section>
 

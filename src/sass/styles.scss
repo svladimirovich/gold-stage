@@ -98,6 +98,10 @@ header {
             }
         }
         nav {
+            & > img {
+                display: inline !important;
+            }
+    
             max-height: 0;
             overflow: hidden;
             display: block;
@@ -106,6 +110,7 @@ header {
             -moz-transition: all ease-in-out .35s;
             -o-transition: all ease-in-out .35s;
             ul {
+                padding-left: 6em;
                 margin-right: -.5em;
                 li {
                     float: right;
@@ -141,6 +146,12 @@ header {
         }
         .dot-bar {
             display: none;
+        }
+    }
+
+    .logo_background {
+        .logo {
+            display: none !important;
         }
     }
 }
