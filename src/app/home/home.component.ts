@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
@@ -6,10 +6,13 @@ import { AppState } from '../app.reducers';
 import { StageEvent } from '../../models/events';
 import { RequestedEventsListAction } from './home.actions';
 
+//import { DomSanitizer } from '@angular/platform-browser'
+
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    styleUrls: ['./home.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
 
@@ -23,7 +26,9 @@ export class HomeComponent implements OnInit {
 
     public menuOpen: boolean = false;
 
-    constructor(private store: Store<AppState>) { }
+    constructor(private store: Store<AppState>,
+                //private domSanitizer: DomSanitizer
+    ) { }
 
     ngOnInit() {
         this.subscription = this.store.select("home").subscribe(state => {
@@ -64,6 +69,19 @@ export class HomeComponent implements OnInit {
 
     gotoBallet(index) {
         this.balletEventIndex = index;
+    }
+
+    getVideoNode() {
+        // this.domSanitizer.bypassSecurityTrustHtml(
+
+        // <!-- poster="posterImage.jpg" -->
+
+        return `
+                <video id="logo_vid" preload="auto" loop autoplay muted> 
+                    <source src="http://www.goldstage.fr/static/videos/goldstage.mp4" type="video/mp4" />
+                </video> 
+                <div class="logo"></div>
+            `;
     }
 
     brightBackground(stageEvent: StageEvent) {
