@@ -2,24 +2,29 @@
 @import '~sass/mixins';
 
 header {
-    h1 {
-        font-size: $home-logo-text-size;
-        font-family: $font-cinzel;
-    }
 
-    p {
-        font-size: $home-paragraph-text-size;
-    }
+    DIV.wrapper {
+        position: relative;
 
-    nav {
-        & > img {
-            display: none;
-            height: 6em;
-            position: absolute;
-            float: left;
-            z-index: 1;
-            left: .5em;
-            top: .5em;
+        h1 {
+            font-size: $home-logo-text-size;
+            font-family: $font-cinzel;
+        }
+
+        p {
+            font-size: $home-paragraph-text-size;
+        }
+
+        nav {
+            & > img {
+                //display: none;
+                height: 6em;
+                position: absolute;
+                float: left;
+                z-index: 1;
+                left: 0;
+                top: .5em;
+            }
         }
     }
 }

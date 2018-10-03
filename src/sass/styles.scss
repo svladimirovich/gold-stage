@@ -39,6 +39,7 @@ header {
     }
 
     nav {
+        float: right;
         display: table;
         margin: 0 auto;
         ul {
@@ -52,6 +53,8 @@ header {
                 a {
                     display: initial;
                 }
+
+                background-color: $color-background;
 
                 display: inline;
                 white-space: nowrap;
@@ -67,8 +70,17 @@ header {
     max-width: 960px;
 }
 
+.desktop-only {
+    display: initial;
+}
+
 /* mobile device menu styles */
 @media screen and (max-width: 42.4375em) {
+    
+    .desktop-only {
+        display: none !important;
+    }
+
     section:not(.event-card) {
         & DIV.wrapper {
             padding-top: 1.7em !important;
@@ -98,8 +110,10 @@ header {
             }
         }
         nav {
+            float: initial !important;
             & > img {
-                display: inline !important;
+                height: 5em !important;
+                //display: inline !important;
             }
     
             max-height: 0;
@@ -110,14 +124,15 @@ header {
             -moz-transition: all ease-in-out .35s;
             -o-transition: all ease-in-out .35s;
             ul {
-                padding-left: 6em;
-                margin-right: -.5em;
+                padding-left: 7em;
+                //margin-right: -.5em;
                 li {
                     float: right;
                     width: 100%;
                     padding: .2em;
                     margin: 2px;
                     text-align: center;
+                    background-color:  rgba(255, 200, 60, 0.6);
                     a {
                         display: block;
                     }
