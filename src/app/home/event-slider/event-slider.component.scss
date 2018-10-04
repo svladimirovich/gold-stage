@@ -44,7 +44,7 @@
         margin-top: 1.7em;
         font-size: $home-section-header-size;
         color: $color-gold-shadow;
-        font-family: $font-cinzel;
+        font-family: $font-fjalla;
     }
     
     h2 {
@@ -72,11 +72,11 @@
         float: right;
         max-height: 300px;
         max-width: 300px;
-        box-shadow: 5px 5px 5px $color-gold-shadow;
+        //box-shadow: 5px 5px 5px $color-gold-shadow;
     }
     
     &.dark img {
-        box-shadow: 5px 5px 5px black;
+        //box-shadow: 5px 5px 5px black;
     }
         
     .background {

@@ -2,7 +2,7 @@
 @import 'variables';
 @import 'mixins';
 
-@import url('https://fonts.googleapis.com/css?family=Abel|Cinzel|Cormorant+Garamond|Old+Standard+TT|Playfair+Display|Playfair+Display+SC');
+@import url('https://fonts.googleapis.com/css?family=Abel|Cinzel|Cormorant+Garamond|Fjalla+One|Old+Standard+TT|Playfair+Display|Playfair+Display+SC');
 // TODO: Couldn't figure a way to lazy load this specifically for the admin module
 @import "../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
@@ -29,7 +29,7 @@ header {
         color: goldenrod;
         text-shadow: 2px 2px $color-gold-shadow;
         font-size: 3em;
-        font-family: $font-cinzel;
+        font-family: $font-fjalla;
         margin-bottom: 0;
     }
     p {
@@ -112,7 +112,9 @@ header {
         nav {
             float: initial !important;
             & > img {
+                top: .5em !important;
                 height: 5em !important;
+                content: url("http://www.goldstage.fr/static/images/logo_simple.png") !important;
                 //display: inline !important;
             }
     

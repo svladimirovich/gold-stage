@@ -3,7 +3,7 @@
     <!--<h1>{{ title }}</h1>-->
     <div class="mobile-menu-icon" [ngClass]="{ open: menuOpen }" (click)="toggleMenu()" ></div>
     <nav>
-      <img alt="GoldStage logo" src="http://www.goldstage.fr/static/images/logo_simple.png">
+      <img alt="GoldStage logo" />
       <ul>
         <li><a href="#contacts" (click)="onNavClick('contacts')">Contact</a></li>
         <li *ngIf="musicEvents.length > 0"><a href="#life-shows" (click)="onNavClick('life-shows')">Live Shows</a></li>
